@@ -44,5 +44,15 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
+group :test do
+  # for controller unit testing, assign @ assert_template
+  gem 'rails-controller-testing'
+  # for improved test output
+  gem 'minitest-reporters'
+  # for automated test running
+  gem 'guard'
+  gem 'guard-minitest'
+end
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

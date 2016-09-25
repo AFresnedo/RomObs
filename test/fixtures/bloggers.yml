@@ -1,10 +1,10 @@
 # Read about fixtures at
 # http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
+valid:
   name: Person One
   email: one@valid.org
 
-two:
+invalid:
   name: Person Two
   email: two.invalid@@oops.giggle
