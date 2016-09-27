@@ -1,0 +1,28 @@
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid $gray-light;
+  color: $gray-light;
+  a {
+    color: $gray;
+    &:hover {
+      color: $gray-darker;
+    }
+  }
+  #footerLeft {
+    float: left;
+    li {
+      float: left;
+      margin-right: 15px;
+      list-style: none;
+    }
+  }
+  #footerRight {
+    float: right;
+    li {
+      list-style: none;
+      float: right;
+      margin-left: 15px;
+    }
+  }
+}

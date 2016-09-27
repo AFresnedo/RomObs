@@ -15,10 +15,18 @@
  * Change of file notice: the default generated file has two additional includes,
  * as comments, and is .css instead of .scss. This has been modified to support
  * bootstrap-sass.
- *
  */
 
 // "bootstrap-sprockets" must be imported before "bootstrap" and
 // "bootstrap/variables"
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+// custom scss
+@import "_header.scss";
+@import "_footer.scss";
+
+// for header not overlapping body
+body {
+  padding-top: 60px;
+}
