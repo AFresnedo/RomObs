@@ -86,3 +86,5 @@ concerns:
    a "commentable" concern that is basically a to-be-nested comments resource
    so you can so "blogs" and "articles" are "commentable" and they both get the
    nested comments resource
+
+copy integration tests from sample app

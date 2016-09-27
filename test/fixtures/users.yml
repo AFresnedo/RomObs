@@ -1,0 +1,38 @@
+# Read about fixtures at
+# http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# reference with users(:andres) i assume a combiation of *.yml (file name)
+# and *: (first line of code defining a single fixture)
+andres:
+  name: Andres Example
+  email: andres@example.com
+  # note that it is impossible to reference the "plain" (virtual) password
+  # because of security, only the digest will exist and be able to be
+  # inspected/referenced...so using a few (in this case, one) digests will be
+  # a matter of convienence otherwise a huge hassle / unwieldly for tests and
+  # i'll take this moment to note that working around this with programming
+  # hacks/tricks/backdoors/dev-only-code (should) always be BAD do not do it
+  # for security AND debugging/test reasons
+  password_digest: <%= User.digest('password') %>
+  admin: true
+
+archer:
+  name: Sterling Archer
+  email: duchess@example.gov
+  password_digest: <%= User.digest('password') %>
+
+lana:
+  name: Lana Kane
+  email: hands@example.gov
+  password_digest: <%= User.digest('password') %>
+
+malory:
+  name: Malory Archer
+  email: boss@example.gov
+  password_digest: <%= User.digest('password') %>
+
+<% 30.times do |n| %>
+user_<%= n %>:
+  name:  <%= "User #{n}" %>
+  email: <%= "user-#{n}@example.com" %>
+  password_digest: <%= User.digest('password') %>
+<% end %>
