@@ -1,0 +1,88 @@
+articles
+  -belong to admins instead of bloggers?
+  -used as site filler, for example on home and about, adds the text needed
+  -has some form of history and history viewer (maybe last 5)
+  -should have update timestamp showing
+  -has a title/body but neither should be unique/indexed imo
+  -unlike blogs, have the text body have a toolbar to pick font/color/alignment
+   and other basic text processing features (background, etc)
+  -should all articles be placed in bootstrap wells?
+
+blogs
+  -maybe have a simplified toolbar with just bold/italics/underline?
+  -archive page
+  -each blog has it's own (read more) page where stuff like images reside
+    -therefore, each blog has its own "preview" presentation in the index
+  -tags for referencing for connections? just spew a ton of tags onto each
+   blog: president, politics, corruption, police budget, etc etc
+
+thought of the day
+  -possible homepage article scroll
+
+links (sidebar?)
+
+rss feed (sidebar or footer?)
+
+about page
+  -give each person worth an about section a place for image, title, text?
+  -how to css unknown text?
+  - /about is the show version of the about page for everyone
+  - /about/edit is admin-only edit version of the page
+
+static-page controller
+  -in charge of site navigation in the absence of following an object
+
+articles controller
+  -in charge of showing/saving correct articles (how to target?)
+
+articles model
+  -simple title/body object...how to identify apart from id?
+  -title and date used as key?
+
+user controller
+  -same as sample app
+
+user model
+  -same as sample app (think of admin like twtich mods vs broadcaster)
+
+blogs controller
+  -title AND date used as key?
+  -one way to make a difference between blogs and articles is that articles
+   have no "show" in their controllers...articles are intended as static-page
+   fillers whereas blogs can have their own page to navigate to (read more)
+   including things like images and stuff
+
+blogs model
+  -different than articles model, get in all the bloggy stuffy like image
+   uploads and the links that father was talking about between other blogs
+
+comments
+  -belong to blogs & commentator
+
+analytics & infographics
+
+admin dashboard
+
+forum
+  -attached to user account
+
+password reset
+account activation
+
+security
+
+tests
+
+real documentation
+
+pictures & uploads
+
+resources:
+  -nested resources, best ruby practices have any objects to be manipualted
+   through the web as resources (iirc)
+
+concerns:
+  -resources that may be used by many other resources, for example create
+   a "commentable" concern that is basically a to-be-nested comments resource
+   so you can so "blogs" and "articles" are "commentable" and they both get the
+   nested comments resource

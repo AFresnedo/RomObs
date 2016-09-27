@@ -1,0 +1,56 @@
+# Read about fixtures at
+# http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+big_body:
+  title: The Full Digest
+  body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec erat ante,
+  auctor nec sem rhoncus, scelerisque interdum odio. Morbi non tristique eros.
+  Vivamus finibus varius erat, id rutrum libero efficitur eu. Etiam convallis
+  nunc quis dolor placerat cursus. Quisque malesuada ligula diam, consequat
+  sagittis libero egestas eu. Phasellus aliquam enim sit amet tellus semper
+  elementum. Proin auctor porta sem a dapibus.
+
+  Nulla facilisi. Donec vehicula purus vitae pellentesque elementum. Etiam at
+  vulputate quam, non cursus sapien. Nulla nibh lorem, rhoncus vel diam id,
+  facilisis tristique erat. Donec ex diam, mollis ac nulla eu, sollicitudin
+  bibendum ipsum. Duis vitae mollis nunc. Curabitur ut eros risus. Donec feugiat
+  in nibh vel aliquam. Class aptent taciti sociosqu ad litora torquent per
+  conubia nostra, per inceptos himenaeos. Phasellus cursus faucibus purus ut
+  fringilla. Fusce molestie, risus eget lacinia ornare, ex ex suscipit lectus, ac
+  consequat dolor felis convallis magna. Praesent odio erat, congue congue erat
+  in, condimentum fermentum sapien. Duis sagittis diam a blandit gravida.
+
+  Nullam iaculis mi ultrices, placerat libero et, dictum diam. Nam molestie enim
+  ac nulla pharetra lacinia. In luctus posuere metus nec iaculis. Curabitur non
+  augue iaculis, tristique dui iaculis, elementum leo. Vivamus ac est eu elit
+  tempor interdum quis sed mi. Aliquam et orci tempor, maximus ligula ac,
+  tincidunt risus. Donec sed lectus tortor. Morbi magna nisi, imperdiet nec
+  lacinia nec, tempus condimentum ipsum. Mauris a nisl enim. Sed cursus auctor
+  odio, blandit lacinia turpis. Nam vel mi tempus ipsum vestibulum dignissim. Cum
+  sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
+  mus. Suspendisse ut tincidunt eros. Sed aliquet scelerisque tellus quis mattis.
+  In rutrum consequat pretium.
+
+  Donec eu mauris ligula. Nulla sodales dolor erat, sed vulputate magna tincidunt
+  sed. Interdum et malesuada fames ac ante ipsum primis in faucibus. Morbi in
+  convallis neque, et feugiat erat. Cras id arcu diam. Praesent volutpat libero
+  ac tristique suscipit. Phasellus sit amet pulvinar urna, quis tempor dolor.
+  Etiam lacinia tincidunt efficitur. Cras blandit vulputate nisl, sit amet
+  pharetra ipsum dictum et. Donec fermentum rutrum purus sit amet lacinia. Nunc
+  vel tristique ipsum, at viverra lacus. Sed euismod quam sed tincidunt semper.
+  In hac habitasse platea dictumst. Morbi elit neque, finibus et eros ut,
+  vehicula accumsan enim.
+
+  Nullam eget risus justo. Aenean odio sapien, vestibulum a nisi at, posuere
+  scelerisque dui. Aliquam laoreet erat tincidunt, porttitor dolor in, blandit
+  lorem. In id metus lacus. Quisque purus dui, vestibulum vitae accumsan sodales,
+  venenatis in lectus. Suspendisse eget nunc mi. Ut id tincidunt dolor, id
+  vestibulum lorem. Integer eu mauris bibendum, porta urna et, posuere quam.
+  Donec fermentum diam nec faucibus tempus. Pellentesque molestie sed nunc at
+  finibus. Donec id congue elit, non aliquam nulla. Pellentesque magna lacus,
+  fermentum vel mi eu, vehicula sodales quam. Nunc aliquam id lectus ac
+  vulputate."
+
+two:
+  title: MyString
+  body: MyText
