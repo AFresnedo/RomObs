@@ -47,12 +47,10 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
                                         }
                                 }
     end
-    follow_redirect! #what is this? some kind of logic like a debug step?
-    # thinking about the above some more, it's possible even browers and such
-    # have to perform some "follow" action...they just do it automatically
-    assert_template 'users/show'
-    assert_select 'div.alert-success' #for flash success prompt
+    follow_redirect!
+    # assert_template 'users/show'
+    assert_select 'div.alert-info'
     assert_not flash.empty?
-    assert is_logged_in?
+    # assert is_logged_in?
   end
 end
