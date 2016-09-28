@@ -39,12 +39,6 @@ articles model
   -simple title/body object...how to identify apart from id?
   -title and date used as key?
 
-user controller
-  -same as sample app
-
-user model
-  -same as sample app (think of admin like twtich mods vs broadcaster)
-
 blogs controller
   -title AND date used as key?
   -one way to make a difference between blogs and articles is that articles
@@ -57,7 +51,9 @@ blogs model
    uploads and the links that father was talking about between other blogs
 
 comments
-  -belong to blogs & commentator
+  -belong to blogs & commentator; this also means that destroy should be
+   automatically triggered (callback) on comment when either blog/commentator
+   are destroyed
 
 analytics & infographics
 
@@ -70,6 +66,10 @@ password reset
 account activation
 
 security
+  -check strong params for all external inputs
+  -https
+  -cross-server whatever thingy
+  -verify no sql injection vulnerabilities
 
 tests
 
@@ -87,10 +87,4 @@ concerns:
    so you can so "blogs" and "articles" are "commentable" and they both get the
    nested comments resource
 
-copy integration tests from sample app
-create sessions tests from old user_controller tests in sample app (actually,
-not necessarily true because sessions DOES use users controller doesn' it?)
-
 layout links test isn't finished, site layout test needs to be done/continued
-
-manually create a database migration to match schema
