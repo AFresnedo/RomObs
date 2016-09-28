@@ -37,6 +37,7 @@ class User < ApplicationRecord
     end
 
     def new_token
+      # urlsafe for account activation token
       SecureRandom.urlsafe_base64
     end
   end
