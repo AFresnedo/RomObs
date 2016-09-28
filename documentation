@@ -92,3 +92,5 @@ create sessions tests from old user_controller tests in sample app (actually,
 not necessarily true because sessions DOES use users controller doesn' it?)
 
 layout links test isn't finished, site layout test needs to be done/continued
+
+manually create a database migration to match schema
