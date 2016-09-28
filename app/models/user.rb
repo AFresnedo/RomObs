@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   attr_accessor :remember_token, :activation_token
   before_create :create_activation_token
-  before_save { email.downcase! }
+  before_save :downcase_email
   validates :name, presence: true, length: { maximum: 50 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
   validates :email, presence: true, length: { maximum: 255 },
@@ -41,9 +41,15 @@ class User < ApplicationRecord
     end
   end
 
-  def create_activation_token
-    self.activation_token = User.new_token
-    # update_attribute isn't necessary because not in db yet (before_create)
-    self.activation_digest = User.digest(activation_token)
-  end
+  private
+
+    def create_activation_token
+      self.activation_token = User.new_token
+      # update_attribute isn't necessary because not in db yet (before_create)
+      self.activation_digest = User.digest(activation_token)
+    end
+
+    def downcase_email
+      email.downcase!
+    end
 end
