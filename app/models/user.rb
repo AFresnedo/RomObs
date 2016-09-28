@@ -1,5 +1,4 @@
 class User < ApplicationRecord
-  has_many :microposts, dependent: :destroy
 
   attr_accessor :remember_token
 
