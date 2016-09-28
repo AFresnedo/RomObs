@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  # require logged_in_user for edit and update actions
   before_action :logged_in_user, only: [:edit, :update, :index, :destroy]
   before_action :correct_user, only: [:edit, :update]
   before_action :admin_user, only: :destroy
@@ -24,7 +23,6 @@ class UsersController < ApplicationController
       flash[:success] = "Welcome to the Sample App!"
       redirect_to @user
     else
-      # interestingly enough, errors appear but not coded here
       render 'new'
     end
   end
@@ -51,8 +49,6 @@ class UsersController < ApplicationController
 
   private
 
-    # strong paramater implmentation to control inject risk, use this method
-    # instead of params when reading code from website (such as update)
     def user_params
       params.require(:user).permit(:name, :email, :password,
                                    :password_confirmation)
@@ -60,14 +56,12 @@ class UsersController < ApplicationController
 
     # Before filters
 
-    # the following two "security measures" seem extremely weak
     def correct_user
       @user = User.find(params[:id])
       redirect_to(root_url) unless current_user?(@user)
     end
 
     def admin_user
-      # what is this redirect security thing? man...
       redirect_to(root_url) unless current_user.admin?
     end
 end
