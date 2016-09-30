@@ -1,4 +1,4 @@
-module StaticPagesHelper
+module PagesHelper
   def imageResize(x=100.00, y=100.00, new=50.00)
    x = x * (new/100.00)
    y = y * (new/100.00)
