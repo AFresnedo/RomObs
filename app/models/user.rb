@@ -29,7 +29,6 @@ class User < ApplicationRecord
     update_attribute(:remember_digest, nil)
   end
 
-  # class methods, as opposed to instance methods
   class << self
     def digest(string)
       cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :

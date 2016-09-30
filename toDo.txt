@@ -1,12 +1,19 @@
+article design notes
+  -inside static pages
+  -they must need their own controller regardless
+  -the static pages layouts have the forms/buttons to send commands to articles
+  -put articles in wells?
+  -articles belong to users, fine, BUT i'll make sure all create/edit commands
+    require a admin tag...so the belong thing is just for object type clarity
+    and proper destroy etc
+
 articles
-  -belong to admins instead of bloggers?
   -used as site filler, for example on home and about, adds the text needed
   -has some form of history and history viewer (maybe last 5)
   -should have update timestamp showing
   -has a title/body but neither should be unique/indexed imo
   -unlike blogs, have the text body have a toolbar to pick font/color/alignment
    and other basic text processing features (background, etc)
-  -should all articles be placed in bootstrap wells?
 
 blogs
   -maybe have a simplified toolbar with just bold/italics/underline?
@@ -15,8 +22,8 @@ blogs
     -therefore, each blog has its own "preview" presentation in the index
   -tags for referencing for connections? just spew a ton of tags onto each
    blog: president, politics, corruption, police budget, etc etc
-	-have tags inputted as: phantom crusaders; corruption; politics
-	-tags will be shown in a long string color coded (maybe w/o meaning)
+    -have tags inputted as: phantom crusaders; corruption; politics
+    -tags will be shown in a long string color coded (maybe w/o meaning)
 
 thought of the day
   -possible homepage article scroll
