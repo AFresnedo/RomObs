@@ -27,9 +27,9 @@ User.create!(name:  "Example User",
                activated_at: Time.zone.now)
 end
 
-# legacy code saved for prosterity: Faker::Lorem & content
-# users = User.order(:created_at).take(6)
-# 20.times do
-#   content = Faker::Lorem.sentence(5)
-#   users.each { |user| user.microposts.create!(content: content) }
-# end
+4.times do
+  article = Article.new(page: 'about')
+  content = Faker::Lorem.paragraphs(4)
+  article.body = content
+  article.save
+end
