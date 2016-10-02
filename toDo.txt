@@ -7,6 +7,11 @@ article design notes
     require a admin tag...so the belong thing is just for object type clarity
     and proper destroy etc
 
+pages design notes (coupled with article)
+  -the page view, for example about.html.rb, knows who he is ("about"), so it
+   can create and show articles that have its name as their location, basically
+   a column in the article's ActiveRecord model
+
 articles
   -used as site filler, for example on home and about, adds the text needed
   -has some form of history and history viewer (maybe last 5)
@@ -37,9 +42,6 @@ about page
   -how to css unknown text?
   - /about is the show version of the about page for everyone
   - /about/edit is admin-only edit version of the page
-
-static-page controller
-  -in charge of site navigation in the absence of following an object
 
 articles controller
   -in charge of showing/saving correct articles (how to target?)

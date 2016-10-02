@@ -3,5 +3,9 @@ class PagesController < ApplicationController
   end
 
   def about
+    @articles = Article.where(page: 'about')
+  end
+
+  def contact
   end
 end
