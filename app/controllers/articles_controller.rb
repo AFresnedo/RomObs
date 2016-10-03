@@ -1,20 +1,17 @@
 class ArticlesController < ApplicationController
 
   def new
-    # send to a new page to enter data with a form with page pre-filled
-    # TODO skip this action and instead let "create" happen on-page
-    @article = Article.new
+    @article = Article.new(page: 'pick: about, contact')
   end
 
   def create
     # create action using form data
     @article = Article.new(article_params)
-    # TODO maybe use same macro programming to set page, helper?
-    @article.page = 'about'
-    if @article.save
+    if valid_page(params[:article][:page]) && @article.save
       flash[:success] = "Article created."
-      # TODO macro program the path using :page
-      redirect_to about_path
+      # redirect to page where article was posted
+      path = send("#{params[:article][:page]}_path")
+      redirect_to path
     else
       # TODO error messages
       flash.now[:danger] = "Couldn't create article."
@@ -33,5 +30,9 @@ class ArticlesController < ApplicationController
 
     def article_params
       params.require(:article).permit(:title, :body, :page)
+    end
+
+    def valid_page page
+      page == 'about' || page == 'contact'
     end
 end

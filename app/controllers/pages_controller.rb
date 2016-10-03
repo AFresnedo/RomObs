@@ -7,5 +7,6 @@ class PagesController < ApplicationController
   end
 
   def contact
+    @articles = Article.where(page: 'contact')
   end
 end
