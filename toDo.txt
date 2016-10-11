@@ -1,3 +1,11 @@
+website layout/design notes:
+    -with the "mode" setting i can have different view modes depending on
+    templates chosen by users (user.template = "view_dark")..as long as
+    I define everything in the views by arbitrary colors (color1, darkestColor,
+    etc) aka make it all templated i can have the values filled in by the
+    different templates offered to the user in their settings
+        -use the html psuedo-link thing to preview each template by loading up
+        the blog or frontpage with the settings in a little window
 article design notes
     -inside static pages
     -they must need their own controller regardless

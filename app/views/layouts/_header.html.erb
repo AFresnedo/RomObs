@@ -18,7 +18,7 @@
               <li><%= link_to "Settings", edit_user_path(current_user) %></li>
               <li class="divider"></li>
               <%# admin only %>
-              <% if admin?(current_user) %>
+              <% if current_user.admin? %>
                 <%# TODO meta programming for current_page_edit %>
                 <li><%= link_to "Edit Page", current_page %></li>
                 <li class="divider"></li>

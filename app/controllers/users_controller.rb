@@ -47,6 +47,8 @@ class UsersController < ApplicationController
     end
   end
 
+  # not private because used in pages controller
+
   private
 
     def user_params
@@ -64,4 +66,5 @@ class UsersController < ApplicationController
     def admin_user
       redirect_to(root_url) unless current_user.admin?
     end
+
 end

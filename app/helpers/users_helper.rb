@@ -6,9 +6,4 @@ module UsersHelper
       "https://secure.gravatar.com/avatar/#{gravatar_id}?s=#{size}"
     image_tag(gravatar_url, alt: user.name, class: "gravatar")
   end
-
-  # user is a user model
-  def admin? user
-    user.admin
-  end
 end
