@@ -47,8 +47,6 @@ class UsersController < ApplicationController
     end
   end
 
-  # not private because used in pages controller
-
   private
 
     def user_params
