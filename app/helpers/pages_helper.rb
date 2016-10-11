@@ -4,4 +4,8 @@ module PagesHelper
    y = y * (new/100.00)
    x.round.to_s + "x" + y.round.to_s
   end
+
+  def current_page
+    @page
+  end
 end

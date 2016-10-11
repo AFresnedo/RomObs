@@ -1,12 +1,15 @@
 class PagesController < ApplicationController
   def home
+    @page = 'home'
   end
 
   def about
-    @articles = Article.where(page: 'about')
+    @page = 'about'
+    @articles = Article.where(page: @page)
   end
 
   def contact
-    @articles = Article.where(page: 'contact')
+    @page = 'contact'
+    @articles = Article.where(page: @page)
   end
 end

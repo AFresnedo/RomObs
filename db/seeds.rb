@@ -8,7 +8,7 @@
 #   }]) Character.create(name: 'Luke', movie: movies.first)
 
 User.create!(name:  "Admin User",
-             email: "admin@railstutorial.org",
+             email: "admin@test.org",
              password:              "foobar",
              password_confirmation: "foobar",
              admin: true,
@@ -16,23 +16,23 @@ User.create!(name:  "Admin User",
              activated_at: Time.zone.now)
 
 User.create!(name:  "Basic User",
-             email: "basic@railstutorial.org",
+             email: "basic@test.org",
              password:              "foobar",
              password_confirmation: "foobar",
-             admin: true,
+             admin: false,
              activated: true,
              activated_at: Time.zone.now)
 
 User.create!(name:  "Blog User",
-             email: "blog@railstutorial.org",
+             email: "blog@test.org",
              password:              "foobar",
              password_confirmation: "foobar",
-             admin: true,
+             admin: false,
              activated: true,
              activated_at: Time.zone.now)
 
 User.create!(name:  "Complete User",
-             email: "complete@railstutorial.org",
+             email: "complete@test.org",
              password:              "foobar",
              password_confirmation: "foobar",
              admin: true,

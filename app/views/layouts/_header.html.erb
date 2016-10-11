@@ -19,7 +19,8 @@
               <li class="divider"></li>
               <%# admin only %>
               <% if admin?(current_user) %>
-                <li><%= link_to "Edit Page", '#' %></li>
+                <%# TODO meta programming for current_page_edit %>
+                <li><%= link_to "Edit Page", current_page %></li>
                 <li class="divider"></li>
               <% end %>
               <%# all users %>
