@@ -1,3 +1,8 @@
+programming note: try having @page as a variable in the page controller that is
+filled out by visitng a page and try to get it passed to the articles
+controller (probably through the page itself...and then this instance variable
+is used to set the page after getting the params)
+
 article design notes
   -inside static pages
   -they must need their own controller regardless
@@ -11,6 +16,8 @@ pages design notes (coupled with article)
   -the page view, for example about.html.rb, knows who he is ("about"), so it
    can create and show articles that have its name as their location, basically
    a column in the article's ActiveRecord model
+  -each article will be a "text object" with a movable/resizeable window and a
+   toolbar for text editing like a word processor provides
 
 articles
   -used as site filler, for example on home and about, adds the text needed

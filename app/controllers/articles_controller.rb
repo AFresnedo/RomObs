@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
 
   def new
-    @article = Article.new(page: 'pick: about, contact')
+    @article = Article.new(page: params[:page])
   end
 
   def create
@@ -13,8 +13,12 @@ class ArticlesController < ApplicationController
       path = send("#{params[:article][:page]}_path")
       redirect_to path
     else
-      # TODO error messages
-      flash.now[:danger] = "Couldn't create article."
+      # TODO error messages from model
+      if !valid_page(params[:article][:page])
+        flash.now[:danger] = "Invalid page."
+      else
+        flash.now[:danger] = "Couldn't create article."
+      end
       render 'new'
     end
   end
