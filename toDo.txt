@@ -1,93 +1,92 @@
-programming note: try having @page as a variable in the page controller that is
-filled out by visitng a page and try to get it passed to the articles
-controller (probably through the page itself...and then this instance variable
-is used to set the page after getting the params)
-
 article design notes
-  -inside static pages
-  -they must need their own controller regardless
-  -the static pages layouts have the forms/buttons to send commands to articles
-  -put articles in wells?
-  -articles belong to users, fine, BUT i'll make sure all create/edit commands
-    require a admin tag...so the belong thing is just for object type clarity
-    and proper destroy etc
+    -inside static pages
+    -they must need their own controller regardless
+    -the static pages layouts have the forms/buttons to send commands to articles
+    -put articles in wells?
+    -articles belong to users, fine, BUT i'll make sure all create/edit commands
+      require a admin tag...so the belong thing is just for object type clarity
+      and proper destroy etc
+        -specifically, have a "edit page" button in the admin dropdown that
+        links to the "edit page" where the article edit buttons are exposed
+            -protection: edit page hidden, edit article button action requires
+            validation from rails
 
 pages design notes (coupled with article)
-  -the page view, for example about.html.rb, knows who he is ("about"), so it
-   can create and show articles that have its name as their location, basically
-   a column in the article's ActiveRecord model
-  -each article will be a "text object" with a movable/resizeable window and a
-   toolbar for text editing like a word processor provides
+    -the page view, for example about.html.rb, knows who he is ("about"), so it
+     can create and show articles that have its name as their location, basically
+     a column in the article's ActiveRecord model
+    -each article will be a "text object" with a movable/resizeable window and a
+     toolbar for text editing like a word processor provides
 
 articles
-  -used as site filler, for example on home and about, adds the text needed
-  -has some form of history and history viewer (maybe last 5)
-  -should have update timestamp showing
-  -has a title/body but neither should be unique/indexed imo
-  -unlike blogs, have the text body have a toolbar to pick font/color/alignment
-   and other basic text processing features (background, etc)
+    -used as site filler, for example on home and about, adds the text needed
+    -has some form of history and history viewer (maybe last 5)
+    -should have update timestamp showing
+    -has a title/body but neither should be unique/indexed imo
+    -unlike blogs, have the text body have a toolbar to pick font/color/alignment
+     and other basic text processing features (background, etc)
 
 blogs
-  -maybe have a simplified toolbar with just bold/italics/underline?
-  -archive page
-  -each blog has it's own (read more) page where stuff like images reside
-    -therefore, each blog has its own "preview" presentation in the index
-  -tags for referencing for connections? just spew a ton of tags onto each
-   blog: president, politics, corruption, police budget, etc etc
-    -have tags inputted as: phantom crusaders; corruption; politics
-    -tags will be shown in a long string color coded (maybe w/o meaning)
+    -maybe have a simplified toolbar with just bold/italics/underline?
+    -archive page
+    -each blog has it's own (read more) page where stuff like images reside
+      -therefore, each blog has its own "preview" presentation in the index
+    -tags for referencing for connections? just spew a ton of tags onto each
+     blog: president, politics, corruption, police budget, etc etc
+      -have tags inputted as: phantom crusaders; corruption; politics
+      -tags will be shown in a long string color coded (maybe w/o meaning)
 
 thought of the day
-  -possible homepage article scroll
+    -possible homepage article scroll
 
 links (sidebar?)
 
 rss feed (sidebar or footer?)
 
 about page
-  -give each person worth an about section a place for image, title, text?
-  -how to css unknown text?
-  - /about is the show version of the about page for everyone
-  - /about/edit is admin-only edit version of the page
+    -give each person worth an about section a place for image, title, text?
+    -how to css unknown text?
+    - /about is the show version of the about page for everyone
+    - /about/edit is admin-only edit version of the page
 
 articles controller
-  -in charge of showing/saving correct articles (how to target?)
+    -in charge of showing/saving correct articles (how to target?)
 
 articles model
-  -simple title/body object...how to identify apart from id?
-  -title and date used as key?
+    -simple title/body object...how to identify apart from id?
+    -title and date used as key?
 
 blogs controller
-  -title AND date used as key?
-  -one way to make a difference between blogs and articles is that articles
-   have no "show" in their controllers...articles are intended as static-page
-   fillers whereas blogs can have their own page to navigate to (read more)
-   including things like images and stuff
+    -title AND date used as key?
+    -one way to make a difference between blogs and articles is that articles
+     have no "show" in their controllers...articles are intended as static-page
+     fillers whereas blogs can have their own page to navigate to (read more)
+     including things like images and stuff
 
 blogs model
-  -different than articles model, get in all the bloggy stuffy like image
-   uploads and the links that father was talking about between other blogs
+    -different than articles model, get in all the bloggy stuffy like image
+     uploads and the links that father was talking about between other blogs
 
 comments
-  -belong to blogs & commentator; this also means that destroy should be
-   automatically triggered (callback) on comment when either blog/commentator
-   are destroyed
+    -belong to blogs & commentator; this also means that destroy should be
+     automatically triggered (callback) on comment when either blog/commentator
+     are destroyed
 
 analytics & infographics
 
 admin dashboard
 
 forum
-  -attached to user account
+    -attached to user account
 
 password reset
 account activation
 
 security
-  -check strong params for all external inputs
-  -https
-  -cross-server whatever thingy
-  -verify no sql injection vulnerabilities
+    -check strong params for all external inputs
+    -https
+    -cross-server whatever thingy
+    -verify no sql injection vulnerabilities
 
 tests
 
@@ -96,13 +95,13 @@ real documentation
 pictures & uploads
 
 resources:
-  -nested resources, best ruby practices have any objects to be manipualted
-   through the web as resources (iirc)
+    -nested resources, best ruby practices have any objects to be manipualted
+     through the web as resources (iirc)
 
 concerns:
-  -resources that may be used by many other resources, for example create
-   a "commentable" concern that is basically a to-be-nested comments resource
-   so you can so "blogs" and "articles" are "commentable" and they both get the
-   nested comments resource
+    -resources that may be used by many other resources, for example create
+     a "commentable" concern that is basically a to-be-nested comments resource
+     so you can so "blogs" and "articles" are "commentable" and they both get the
+     nested comments resource
 
 layout links test isn't finished, site layout test needs to be done/continued

@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  # attributes: name, email, password_digest, remember_digest, admin,
+  # created_at, updated_at, activation_digest, activated, activated_at
   attr_accessor :remember_token, :activation_token
   before_create :create_activation_token
   before_save :downcase_email
