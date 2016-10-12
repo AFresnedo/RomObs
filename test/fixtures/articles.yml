@@ -54,3 +54,8 @@ big_body:
 two:
   title: MyString
   body: MyText
+
+aboutPageArticleOne:
+    title: First Article
+    body: "My name is Johnny Smitherson. I am 957 years old. Hello!"
+    page: 'about'
