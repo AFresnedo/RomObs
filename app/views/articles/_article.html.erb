@@ -5,7 +5,7 @@
     <h3><%= article.title %></h3>
     <span class="content"><%= article.body %></span>
     <%# need to specify article.id here? %>
-    <% if current_user.admin? %>
+    <% if current_user && current_user.admin? %>
       <%= link_to 'Edit', edit_article_url(article.id) %>
     <% end %>
   </li>
