@@ -4,7 +4,8 @@ class UserTest < ActiveSupport::TestCase
 
   def setup
     @user = User.new name: "Andres Fresnedo", email: "andfresnedo@gmail.com",
-                      password: "foobar", password_confirmation: "foobar"
+                      password: "foobar", password_confirmation: "foobar",
+                      activated: "yes", activation_digest: User.digest("foobar")
   end
 
   test "should be valid" do
@@ -77,6 +78,18 @@ class UserTest < ActiveSupport::TestCase
 
   test "authenticated? should return false for a user with nil digest" do
     assert_not @user.authenticated?('remember', '')
+  end
+
+  test "authenticated? false return on activated check with invalid token" do
+    assert_not @user.authenticated?('activation', '')
+  end
+
+  test "authenticated? true return on activated check with valid token" do
+    assert @user.authenticated?('activation', 'foobar')
+  end
+
+  test "not admin" do
+    assert_not @user.admin?
   end
 
 end

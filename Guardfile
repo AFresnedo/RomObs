@@ -31,7 +31,6 @@ guard :minitest do
   # to watch files that are not tests you need to watch the file and pass the
   #   test to run with it
   watch(%r{^app/controllers/(.*)_controller\.rb$}) { 'test/integration' }
-  # for some reason "rails test/models/user_test.rb runs all model tests
   watch(%r{^app/models/(.*)\.rb$}) { |m| "test/models/#{m[1]}_test\.rb" }
   watch(%r{^app/helpers/.*\.rb$}) { 'test/integration' }
   watch(%r{^app/views/.*\.erb$}) { 'test/integration' }
