@@ -9,7 +9,8 @@ class BasicPageEditTest < ActionDispatch::IntegrationTest
   end
 
   test "basic user doesnt see admin features" do
-    post login_path, params: { session: { email: @basic.email,
+    # example of hardcoding login instead of using helper
+        post login_path, params: { session: { email: @basic.email,
                                           password: "basic" } }
     assert is_logged_in?
     assert_not @basic.admin?
@@ -29,7 +30,9 @@ class BasicPageEditTest < ActionDispatch::IntegrationTest
   end
 
   test "admin user sees view and edit modes in about page" do
-    log_in_as(@admin, 'admin', '1', '1')
+    assert @admin.admin?
+    # login with password 'admin' and remember flag on
+    log_in_as(@admin, 'admin', '1')
     assert is_logged_in?
     get about_path
     assert_template 'about'
@@ -54,7 +57,9 @@ class BasicPageEditTest < ActionDispatch::IntegrationTest
   end
 
   test "admin user sees view and edit modes in contact page" do
-    log_in_as(@admin, 'admin', '1', '1')
+    assert @admin.admin?
+    # login with password 'admin' and remember flag on
+    log_in_as(@admin, 'admin', '1')
     assert is_logged_in?
     get contact_path
     assert_template 'contact'

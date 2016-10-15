@@ -31,11 +31,11 @@ class ActionDispatch::IntegrationTest
 
   # create a logged in user with a fixture in integration tests
   # some fixtures have custom passwords
-  def log_in_as(user, password = 'password', remember_me = '1', admin = '0')
+  def log_in_as(user, password = 'password', remember_me = '1')
     post login_path, params: { session: { email: user.email,
                                           password: password,
                                           remember_me: remember_me,
-                                          admin: admin} }
+                                          admin: user.admin} }
   end
 
   def log_out_fixture
