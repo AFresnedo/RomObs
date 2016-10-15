@@ -16,8 +16,8 @@ class PagesController < ApplicationController
     @page = 'about'
     @articles = Article.where(page: @page)
     @mode = 'edit'
-    flash[:success] = @mode
-    redirect_to about_url
+    flash.now[:success] = @mode
+    render 'about'
   end
 
   def contact

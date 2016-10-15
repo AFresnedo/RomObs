@@ -20,6 +20,7 @@ class ActiveSupport::TestCase
   def log_in_as user
     session[:user_id] = user.id
   end
+
 end
 
 class ActionDispatch::IntegrationTest
@@ -38,4 +39,5 @@ class ActionDispatch::IntegrationTest
   def log_out_fixture
     delete logout_path
   end
+
 end

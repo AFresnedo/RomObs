@@ -4,8 +4,7 @@
   <li id="article-<%= article.id %>">
     <h3><%= article.title %></h3>
     <span class="content"><%= article.body %></span>
-    <%# need to specify article.id here? %>
-    <% if current_user && current_user.admin? %>
+    <% if @mode == 'edit' %>
       <%= link_to 'Edit', edit_article_url(article.id) %>
     <% end %>
   </li>
