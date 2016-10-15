@@ -1,0 +1,13 @@
+test helpers, views, tests, and controller helpers:
+
+i had some bugs occur because of misunderstanding the nature of helpers...i use
+the "test helper" to help me login because i need to fake logins...the sessions
+helper is just code for the sessions controller & views that care...i was
+trying to use the sessions controller to help my tests which doesn't make any
+sense at all (what i needed to use what the sessions controller itself...which
+comes from posting to the login_path which THEN uses the sessions helper
+methods as intended)... i was trying to look at the view that cared and somehow
+emulate/fake an entire session using a session helper and some test
+code...completely warped/unintended/wrongful stuff that wasn't following proper
+design at all...REALLY just had to login properly (which i wasn't because of
+passwords) and then have everything work after that
