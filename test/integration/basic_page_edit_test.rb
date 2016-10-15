@@ -54,6 +54,10 @@ class BasicPageEditTest < ActionDispatch::IntegrationTest
         assert_select 'a', 1
       end
     end
+    # ensure mode lock after logout
+    log_out_fixture
+    get about_edit_path
+    assert_response :redirect
   end
 
   test "admin user sees view and edit modes in contact page" do
@@ -79,5 +83,9 @@ class BasicPageEditTest < ActionDispatch::IntegrationTest
         assert_select 'a', 1
       end
     end
+    # ensure mode lock after logout
+    log_out_fixture
+    get about_edit_path
+    assert_response :redirect
   end
 end

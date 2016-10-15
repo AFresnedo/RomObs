@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
-  before_action :logged_in_user, only: :about_edit
+  # logged_in_user must be before admin_user to prevent nil.admin? check
+  before_action :logged_in_user, only: [:about_edit, :contact_edit]
   before_action :admin_user, only: [:about_edit, :contact_edit]
   def home
     @page = 'home'
@@ -32,10 +33,4 @@ class PagesController < ApplicationController
     render 'contact'
   end
 
-
-  private
-
-    def admin_user
-      redirect_to(root_url) unless current_user.admin?
-    end
 end

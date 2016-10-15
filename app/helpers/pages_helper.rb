@@ -5,6 +5,7 @@ module PagesHelper
    x.round.to_s + "x" + y.round.to_s
   end
 
+  # TODO seems unnecessary
   def current_page
     @page
   end
