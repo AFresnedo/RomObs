@@ -9,6 +9,7 @@ class PagesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get about" do
+    # view mode should be visible but edit mode restricted
     get about_path
     assert_response :success
     get about_edit_path
@@ -16,6 +17,7 @@ class PagesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get contact" do
+    # view mode should be visible but edit mode restricted
     get contact_path
     assert_response :success
     get contact_edit_path

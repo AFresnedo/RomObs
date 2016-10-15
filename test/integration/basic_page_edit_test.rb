@@ -51,7 +51,7 @@ class BasicPageEditTest < ActionDispatch::IntegrationTest
         assert_select 'h3', "First Article"
         assert_select 'span'
         assert_select '.content', "My name is Johnny Smitherson. I am 957 years old. Hello!"
-        assert_select 'a', 1
+        assert_select 'a'
       end
     end
     # ensure mode lock after logout
@@ -80,7 +80,7 @@ class BasicPageEditTest < ActionDispatch::IntegrationTest
       assert_select '.articles' do
         assert_select 'h3', 'contact'
         assert_select '.content', 'i am on contact page'
-        assert_select 'a', 1
+        assert_select 'a'
       end
     end
     # ensure mode lock after logout

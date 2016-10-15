@@ -1,8 +1,10 @@
-<% provide(:title, 'Create article') %>
-<h1>Create article</h1>
+<% provide(:title, 'Edit article') %>
+<h1>Edit article</h1>
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
+    <%# unsure why url is necessary, requires some helper reading %>
+    <%# url tells the form where to post or update to %>
     <%= form_for(@article) do |f| %>
       <%= render 'shared/error_messages' %>
 
@@ -11,9 +13,6 @@
 
       <%= f.label :body %>
       <%= f.text_area :body, class: 'form-control' %>
-
-      <%= f.label :page %>
-      <%= f.text_field :page, class: 'form-control' %>
 
       <%= f.submit "Create article", class: "btn btn-primary" %>
     <% end %>

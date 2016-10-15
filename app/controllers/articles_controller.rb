@@ -1,4 +1,6 @@
 class ArticlesController < ApplicationController
+  before_action :logged_in_user
+  before_action :admin_user
 
   def new
     @article = Article.new(page: params[:page])
@@ -7,27 +9,29 @@ class ArticlesController < ApplicationController
   def create
     # create action using form data
     @article = Article.new(article_params)
-    if valid_page(params[:article][:page]) && @article.save
+    if @article.save
       flash[:success] = "Article created."
       # redirect to page where article was posted
-      path = send("#{params[:article][:page]}_path")
       redirect_to path
     else
-      # TODO error messages from model
-      if !valid_page(params[:article][:page])
-        flash.now[:danger] = "Invalid page."
-      else
-        flash.now[:danger] = "Couldn't create article."
-      end
+      # model error messages displayed by view here
       render 'new'
     end
   end
 
   def edit
-
+    @article = Article.find_by_id(params[:id])
   end
 
   def update
+    # target appropriate article
+    @article = Article.find_by_id(params[:id])
+    if @article.update_attributes(article_params)
+      flash[:success] = "Article updated."
+      redirect_to path
+    else
+      render 'edit'
+    end
   end
 
   private
@@ -36,7 +40,9 @@ class ArticlesController < ApplicationController
       params.require(:article).permit(:title, :body, :page)
     end
 
-    def valid_page page
-      page == 'about' || page == 'contact'
+    # some meta programming to say "page_path" where page depends on article
+    def path
+      send("#{@article.page}_path")
     end
+
 end

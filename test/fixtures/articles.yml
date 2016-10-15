@@ -50,10 +50,12 @@ big_body:
   finibus. Donec id congue elit, non aliquam nulla. Pellentesque magna lacus,
   fermentum vel mi eu, vehicula sodales quam. Nunc aliquam id lectus ac
   vulputate."
+  page: 'contact'
 
 two:
   title: MyString
   body: MyText
+  page: 'about'
 
 aboutPageArticleOne:
     title: First Article

@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   get '/signup', to: 'users#new'
   post '/signup', to: 'users#create'
 
-  # logged in pages routes
+  # login pages routes
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
@@ -28,6 +28,6 @@ Rails.application.routes.draw do
   # automatically generated routes for resources
   resources :users
   resources :account_activations, only: [:edit]
-  resources :articles, only: [:new, :edit, :create]
+  resources :articles, only: [:new, :edit, :create, :update]
 
 end

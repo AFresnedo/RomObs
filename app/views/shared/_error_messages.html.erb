@@ -1,4 +1,6 @@
-<% if @user.errors.any? %>
+<%# TODO the current format is ugly and wrong, i don't think errors should be %>
+<%# shared %>
+<% if @user && @user.errors.any? %>
   <div id="error_explanation">
     <div class="alert alert-danger">
       The form contains <%= pluralize(@user.errors.count, "error") %>.
@@ -10,3 +12,17 @@
     </ul>
   </div>
 <% end %>
+
+<% if @article && @article.errors.any? %>
+  <div id="error_explanation">
+    <div class="alert alert-danger">
+      The form contains <%= pluralize(@article.errors.count, "error") %>.
+    </div>
+    <ul>
+    <% @article.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+

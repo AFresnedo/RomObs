@@ -3,7 +3,7 @@
 class PageExists < ActiveModel::Validator
   def validate record
     unless valid_page(record.page)
-      record.errors.add(:page, "Page doesn't exist.")
+      record.errors.add(:page, "name is incorrect.")
     end
   end
 

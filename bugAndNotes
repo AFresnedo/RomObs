@@ -11,3 +11,11 @@ emulate/fake an entire session using a session helper and some test
 code...completely warped/unintended/wrongful stuff that wasn't following proper
 design at all...REALLY just had to login properly (which i wasn't because of
 passwords) and then have everything work after that
+
+design error with articles (controller & model):
+
+i created, at the controller level, some code to prevent invalid pages from
+being saved but this is done at the wrong level...it is a property of the
+article model because it is an attribute of the article model so it should be
+a validation in the article model source code instead of being a check in the
+controller create
