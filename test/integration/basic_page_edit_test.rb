@@ -24,13 +24,12 @@ class BasicPageEditTest < ActionDispatch::IntegrationTest
     end
     get about_edit_path
     assert_response :redirect
+    get contact_edit_path
+    assert_response :redirect
   end
 
-  test "admin user sees article edit" do
-    # for some reason cant get a helper function working for logging in maybe
-    # i was misusing log_in_as
-    post login_path, params: { session: { email: @admin.email,
-                                          password: "admin" } }
+  test "admin user sees view and edit modes in about page" do
+    log_in_as(@admin, 'admin', '1', '1')
     assert is_logged_in?
     get about_path
     assert_template 'about'
@@ -52,8 +51,28 @@ class BasicPageEditTest < ActionDispatch::IntegrationTest
         assert_select 'a', 1
       end
     end
-    # get contact_path
-    # assert_template 'contact'
-    # assert_select 'Edit'
+  end
+
+  test "admin user sees view and edit modes in contact page" do
+    log_in_as(@admin, 'admin', '1', '1')
+    assert is_logged_in?
+    get contact_path
+    assert_template 'contact'
+    assert_select '.container' do
+      assert_select '.articles' do
+        assert_select 'h3'
+        assert_select '.content'
+        assert_select 'a', 0
+      end
+    end
+    get contact_edit_path
+    assert_response :success
+    assert_select '.container' do
+      assert_select '.articles' do
+        assert_select 'h3', 'contact'
+        assert_select '.content', 'i am on contact page'
+        assert_select 'a', 1
+      end
+    end
   end
 end

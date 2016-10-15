@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   before_action :logged_in_user, only: :about_edit
-  before_action :admin_user, only: :about_edit
+  before_action :admin_user, only: [:about_edit, :contact_edit]
   def home
     @page = 'home'
     @mode = 'view'
@@ -16,7 +16,6 @@ class PagesController < ApplicationController
     @page = 'about'
     @articles = Article.where(page: @page)
     @mode = 'edit'
-    flash.now[:success] = @mode
     render 'about'
   end
 
@@ -25,6 +24,14 @@ class PagesController < ApplicationController
     @articles = Article.where(page: @page)
     @mode = 'view'
   end
+
+  def contact_edit
+    @page = 'contact'
+    @articles = Article.where(page: @page)
+    @mode = 'edit'
+    render 'contact'
+  end
+
 
   private
 

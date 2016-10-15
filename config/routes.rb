@@ -8,10 +8,11 @@ Rails.application.routes.draw do
 
   # about page routes
   get '/about', to: 'pages#about'
-  get 'about_edit', to: 'pages#about_edit'
+  get 'about/edit', to: 'pages#about_edit'
 
   # contact page routes
   get '/contact', to: 'pages#contact'
+  get 'contact/edit', to: 'pages#contact_edit'
 
   # user model pages routes
   get '/edit', to: 'users#edit'

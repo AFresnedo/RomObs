@@ -56,7 +56,11 @@ two:
   body: MyText
 
 aboutPageArticleOne:
-    id: 1
     title: First Article
     body: "My name is Johnny Smitherson. I am 957 years old. Hello!"
     page: 'about'
+
+contactArticle:
+    title: 'contact'
+    body: 'i am on contact page'
+    page: 'contact'
