@@ -2,23 +2,48 @@ require 'test_helper'
 
 class LayoutLinksTest < ActionDispatch::IntegrationTest
   def setup
-    @user = users(:andres)
+    @basic = users(:basic)
+    @admin = users(:admin)
   end
 
-  test "logged in navigating" do
-    log_in_as @user
+  test "logged in basic navbar displays" do
+    log_in_as @basic, 'basic'
+    assert is_logged_in?
     get root_path
-    get about_path
+    assert_template 'home'
+    # check links
+    assert_select 'a', 'Users'
   end
 
-  test "logged out navigating" do
+  test "logged out navbar has login" do
+    # for some reason is_logged_in? requires log_out to "know" methods
     log_out
     assert_not is_logged_in?
     get root_path
     assert_template 'home'
+    assert_select 'a', 'Log in'
+    assert_select 'a', { count: 0, text: 'Users' }
+  end
+
+  test "logged in admin has edit on editable pages" do
+    log_in_as @admin, 'admin'
+    assert is_logged_in?
+    get root_path
+    assert_template 'home'
+    assert_select 'a', { count: 1, text: 'Edit Page' }
     get about_path
     assert_template 'about'
-    # this template assert requires at least 1 about page article fixture
-    assert_template 'articles/_article'
+    assert_select 'a', { count: 1, text: 'Edit Page' }
+    get contact_path
+    assert_template 'contact'
+    assert_select 'a', { count: 1, text: 'Edit Page' }
+    get users_path
+    assert_template 'users/index'
+    assert_select 'a', { count: 0, text: 'Edit Page' }
+    log_out
+    assert_redirected_to root_path
+    follow_redirect!
+    assert_template 'home'
+    assert_select 'a', { count: 0, text: 'Edit Page' }
   end
 end
