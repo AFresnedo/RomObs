@@ -86,4 +86,11 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
     assert_select 'h3', 'updated title'
   end
 
+  # TODO
+  test "admin can destroy articles" do
+  end
+
+  test "basic and logged out cannot destroy articles" do
+  end
+
 end

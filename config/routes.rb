@@ -29,6 +29,6 @@ Rails.application.routes.draw do
   # automatically generated routes for resources
   resources :users
   resources :account_activations, only: [:edit]
-  resources :articles, only: [:new, :edit, :create, :update]
+  resources :articles, only: [:new, :edit, :create, :update, :destroy]
 
 end
