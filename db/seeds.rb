@@ -53,7 +53,18 @@ end
 
 4.times do
   article = Article.new(page: 'about')
+  heading = Faker::Lorem.sentences(1)
   content = Faker::Lorem.paragraphs(4)
+  article.title = heading
+  article.body = content
+  article.save
+end
+
+3.times do
+  article = Article.new(page: 'contact')
+  heading = Faker::Lorem.sentences(1)
+  content = Faker::Lorem.paragraphs(4)
+  article.title = heading
   article.body = content
   article.save
 end
