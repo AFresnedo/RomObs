@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   # front page routes
   root 'pages#home'
   get '/home', to: 'pages#home'
+  get '/home/edit', to: 'pages#home_edit'
 
   # about page routes
   get '/about', to: 'pages#about'

@@ -5,8 +5,7 @@ module PagesHelper
    x.round.to_s + "x" + y.round.to_s
   end
 
-  # TODO seems unnecessary
-  def current_page
-    @page
+  def edit_path page
+    send("#{page}_edit_path")
   end
 end

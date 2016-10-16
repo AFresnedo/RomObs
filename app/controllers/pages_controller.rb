@@ -7,6 +7,11 @@ class PagesController < ApplicationController
     @mode = 'view'
   end
 
+  def home_edit
+    @page = 'home'
+    @mode = 'edit'
+  end
+
   def about
     @page = 'about'
     @articles = Article.where(page: @page)
