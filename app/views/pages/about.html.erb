@@ -7,4 +7,7 @@
 <%# articles to be shown %>
 <div class="container" id="about">
   <%= render @articles %>
+  <% if @mode == 'edit' %>
+    <%= link_to 'Create text object', new_article_url %>
+  <% end %>
 </div>

@@ -9,6 +9,13 @@ class PageExists < ActiveModel::Validator
 
   # TODO refactor this to match the ruby idomatic way
   def valid_page page
+    # ignore case
+    if page
+      page.downcase!
+    else
+      return false
+    end
+    # verify page name
     exists = false
     if page == 'about'
       exists = true
