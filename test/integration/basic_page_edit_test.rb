@@ -55,7 +55,7 @@ class BasicPageEditTest < ActionDispatch::IntegrationTest
       end
     end
     # ensure mode lock after logout
-    log_out_fixture
+    log_out
     get about_edit_path
     assert_response :redirect
   end
@@ -84,7 +84,7 @@ class BasicPageEditTest < ActionDispatch::IntegrationTest
       end
     end
     # ensure mode lock after logout
-    log_out_fixture
+    log_out
     get about_edit_path
     assert_response :redirect
   end

@@ -21,25 +21,26 @@ class ActiveSupport::TestCase
     session[:user_id] = user.id
   end
 
+  def log_out
+    delete logout_path
+  end
+
 end
 
 class ActionDispatch::IntegrationTest
 
-  def is_logged_in?
-    !session[:user_id].nil?
-  end
-
-  # create a logged in user with a fixture in integration tests
-  # some fixtures have custom passwords
+  # override log_in_as user for cookie functionality
   def log_in_as(user, password = 'password', remember_me = '1')
     post login_path, params: { session: { email: user.email,
                                           password: password,
+                                          activated: user.activated,
                                           remember_me: remember_me,
                                           admin: user.admin} }
   end
 
-  def log_out_fixture
-    delete logout_path
-  end
+  # no user browser with cookies, need to emulate this completely?
+  # def is_remembered?
+    # !cookies[:user_id].nil?
+  # end
 
 end

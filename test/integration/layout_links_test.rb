@@ -12,7 +12,7 @@ class LayoutLinksTest < ActionDispatch::IntegrationTest
   end
 
   test "logged out navigating" do
-    log_out_fixture
+    log_out
     assert_not is_logged_in?
     get root_path
     assert_template 'home'

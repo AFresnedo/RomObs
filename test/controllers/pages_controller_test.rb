@@ -13,7 +13,7 @@ class PagesControllerTest < ActionDispatch::IntegrationTest
     get about_path
     assert_response :success
     get about_edit_path
-    assert_response :redirect
+    assert_response :redirect, login_url
   end
 
   test "should get contact" do
@@ -21,7 +21,7 @@ class PagesControllerTest < ActionDispatch::IntegrationTest
     get contact_path
     assert_response :success
     get contact_edit_path
-    assert_response :redirect
+    assert_response :redirect, login_url
   end
 
 end

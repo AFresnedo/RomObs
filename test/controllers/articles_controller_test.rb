@@ -13,7 +13,7 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
     get new_article_path
     assert_response :redirect, root_url
     # log out
-    log_out_fixture
+    log_out
     get new_article_path
     assert_response :redirect, root_url
   end
@@ -32,7 +32,7 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
                                               body: 'body',
                                               page: 'about' } }
     end
-    log_out_fixture
+    log_out
     assert_no_difference 'Article.count' do
       post articles_path, params: { article: { title: 'title',
                                               body: 'body',
@@ -55,7 +55,7 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
     article = Article.first
     get edit_article_path(article.id)
     assert_redirected_to root_url
-    log_out_fixture
+    log_out
     get edit_article_path(1)
     assert_redirected_to login_url
   end
