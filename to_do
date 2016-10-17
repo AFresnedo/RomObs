@@ -6,6 +6,7 @@ website layout/design notes:
     different templates offered to the user in their settings
         -use the html psuedo-link thing to preview each template by loading up
         the blog or frontpage with the settings in a little window
+
 article design notes
     -inside static pages
     -they must need their own controller regardless
@@ -14,10 +15,6 @@ article design notes
     -articles belong to users, fine, BUT i'll make sure all create/edit commands
       require a admin tag...so the belong thing is just for object type clarity
       and proper destroy etc
-        -specifically, have a "edit page" button in the admin dropdown that
-        links to the "edit page" where the article edit buttons are exposed
-            -protection: edit page hidden, edit article button action requires
-            validation from rails
 
 pages design notes (coupled with article)
     -the page view, for example about.html.rb, knows who he is ("about"), so it
@@ -29,7 +26,6 @@ pages design notes (coupled with article)
 articles
     -used as site filler, for example on home and about, adds the text needed
     -has some form of history and history viewer (maybe last 5)
-    -should have update timestamp showing
     -has a title/body but neither should be unique/indexed imo
     -unlike blogs, have the text body have a toolbar to pick font/color/alignment
      and other basic text processing features (background, etc)
@@ -88,15 +84,12 @@ forum
     -attached to user account
 
 password reset
-account activation
 
 security
     -check strong params for all external inputs
     -https
     -cross-server whatever thingy
     -verify no sql injection vulnerabilities
-
-tests
 
 real documentation
 
@@ -112,4 +105,4 @@ concerns:
      so you can so "blogs" and "articles" are "commentable" and they both get the
      nested comments resource
 
-layout links test isn't finished, site layout test needs to be done/continued
+cleanup routes
