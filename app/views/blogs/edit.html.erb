@@ -1,2 +1,21 @@
-<h1>Blogs#edit</h1>
-<p>Find me in app/views/blogs/edit.html.erb</p>
+<% provide(:title, 'Edit blog post') %>
+<h1>Edit blog post</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@blog) do |f| %>
+      <%= render 'shared/error_messages' %>
+
+      <%= f.label :title %>
+      <%= f.text_field :title, class: 'form-control' %>
+
+      <%= f.label "Description" %>
+      <%= f.text_field :descript, class: 'form-control' %>
+
+      <%= f.label :body %>
+      <%= f.text_area :body, class: 'form-control' %>
+
+      <%= f.submit "Edit post", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

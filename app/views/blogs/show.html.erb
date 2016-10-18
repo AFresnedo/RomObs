@@ -1,2 +1,10 @@
-<h1>Blogs#show</h1>
-<p>Find me in app/views/blogs/show.html.erb</p>
+<%# TODO change conditional to redirect if !@blog %>
+<% if @blog %>
+  <% provide(:title, @blog.title) %>
+  <h3> <%= @blog.title %> </h3>
+  <em><%= @blog.descript %></em>
+  <p> <%= @blog.body %> </p>
+<% else %>
+  <% provide(:title, "No Post") %>
+  <h1>Post not found.</h1>
+<% end %>

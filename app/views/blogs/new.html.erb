@@ -1,2 +1,21 @@
-<h1>Blogs#new</h1>
-<p>Find me in app/views/blogs/new.html.erb</p>
+<% provide(:title, 'Create blog post') %>
+<h1>Create blog post</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@blog) do |f| %>
+      <%= render 'shared/error_messages' %>
+
+      <%= f.label :title %>
+      <%= f.text_field :title, class: 'form-control' %>
+
+      <%= f.label "Description" %>
+      <%= f.text_field :descript, class: 'form-control' %>
+
+      <%= f.label :body %>
+      <%= f.text_area :body, class: 'form-control' %>
+
+      <%= f.submit "Create post", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

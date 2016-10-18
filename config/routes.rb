@@ -1,23 +1,4 @@
 Rails.application.routes.draw do
-  get 'comments/create'
-
-  get 'comments/update'
-
-  get 'comments/destroy'
-
-  get 'blogs/index'
-
-  get 'blogs/show'
-
-  get 'blogs/new'
-
-  get 'blogs/create'
-
-  get 'blogs/edit'
-
-  get 'blogs/update'
-
-  get 'blogs/destroy'
 
   # For details on the DSL available within this file, see
   # http://guides.rubyonrails.org/routing.html
@@ -50,5 +31,8 @@ Rails.application.routes.draw do
   resources :users
   resources :account_activations, only: [:edit]
   resources :articles, only: [:new, :edit, :create, :update, :destroy]
+  # TODO trim blogs and comments
+  resources :blogs
+  resources :comments
 
 end

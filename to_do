@@ -1,3 +1,13 @@
+blog index:
+    -create a front-end filter to hide results not matching filter (rails will
+    still have sent all the blogs to the page via the controller, so filtering
+    is done very quickly with no database hits any time it is changed)
+
+blog search:
+    -the blog search will probably need to use the database because of tags and
+    complexity of algorithms so i think there should be a search controller
+    action
+
 website layout/design notes:
     -with the "mode" setting i can have different view modes depending on
     templates chosen by users (user.template = "view_dark")..as long as

@@ -62,9 +62,20 @@ end
 
 3.times do
   article = Article.new(page: 'contact')
-  heading = Faker::Lorem.sentences(1)
-  content = Faker::Lorem.paragraphs(4)
-  article.title = heading
-  article.body = content
+  title = Faker::Lorem.sentences(1)
+  body = Faker::Lorem.paragraphs(4)
+  article.title = title
+  article.body = body
   article.save
+end
+
+15.times do
+  blog = Blog.new
+  title = Faker::Lorem.sentences(1)
+  descript = Faker::Lorem.sentences(1)
+  body = Faker::Lorem.paragraphs(10)
+  blog.title = title
+  blog.descript = descript
+  blog.body = body
+  blog.save
 end
