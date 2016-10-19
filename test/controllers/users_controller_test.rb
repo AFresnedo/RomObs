@@ -55,6 +55,17 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_not @other_user.reload.admin?
   end
 
+  test "blogger attribute cannot be manipulated through the web" do
+    log_in_as @other_user
+    assert_not @other_user.blogger?
+    patch user_path(@other_user), params: {
+                                  user: { password: 'password',
+                                           password_confirmation:
+                                           'password',
+                                           blogger: '1' } }
+    assert_not @other_user.reload.blogger?
+  end
+
   test "should redirect destroy when not logged in" do
     assert_no_difference 'User.count' do
       delete user_path(@user)

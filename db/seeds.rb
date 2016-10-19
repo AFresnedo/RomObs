@@ -23,11 +23,12 @@ User.create!(name:  "Basic User",
              activated: true,
              activated_at: Time.zone.now)
 
-User.create!(name:  "Blog User",
-             email: "blog@test.org",
+User.create!(name:  "Blogger User",
+             email: "blogger@test.org",
              password:              "foobar",
              password_confirmation: "foobar",
              admin: false,
+             blogger: true,
              activated: true,
              activated_at: Time.zone.now)
 
@@ -36,6 +37,7 @@ User.create!(name:  "Complete User",
              password:              "foobar",
              password_confirmation: "foobar",
              admin: true,
+             blogger: true,
              activated: true,
              activated_at: Time.zone.now)
 
@@ -69,7 +71,8 @@ end
   article.save
 end
 
-15.times do
+10.times do
+  blogger = User.find_by(email: 'blogger@test.org')
   blog = Blog.new
   title = Faker::Lorem.sentences(1)
   descript = Faker::Lorem.sentences(1)
@@ -77,5 +80,14 @@ end
   blog.title = title
   blog.descript = descript
   blog.body = body
+  blog.user_id = blogger.id
   blog.save
+end
+
+5.times do
+  blogger = User.find_by(email: 'complete@test.org')
+  title = Faker::Lorem.sentences(1)
+  descript = Faker::Lorem.sentences(1)
+  body = Faker::Lorem.paragraphs(10)
+  blogger.blogs.create!(title: title, descript: descript, body: body)
 end

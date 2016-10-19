@@ -6,6 +6,9 @@ class UserTest < ActiveSupport::TestCase
     @user = User.new name: "Andres Fresnedo", email: "andfresnedo@gmail.com",
                       password: "foobar", password_confirmation: "foobar",
                       activated: "yes", activation_digest: User.digest("foobar")
+    # all blog fixtures assigned to blogger
+    @blogger = users(:blogger)
+    @complete = users(:complete)
   end
 
   test "should be valid" do
@@ -90,6 +93,19 @@ class UserTest < ActiveSupport::TestCase
 
   test "not admin" do
     assert_not @user.admin?
+  end
+
+  test "not blogger" do
+    assert_not @user.blogger?
+  end
+
+  test "dependent blogs are destroyed" do
+    # do not use blogger, all blogs assigned to him
+    user = @complete
+    user.blogs.create!(title: 'title', descript: 'hi', body: 'eh')
+    assert_difference 'Blog.count', -1 do
+      user.destroy
+    end
   end
 
 end

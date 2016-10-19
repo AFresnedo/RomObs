@@ -38,6 +38,15 @@ admin:
     activated: true
     activated_at: <%= Time.zone.now %>
 
+blogger:
+    name: Blogger User
+    email: blogger@test.org
+    password_digest: <%= User.digest('blogger') %>
+    blogger: true
+    activated: true
+    activated_at: <%= Time.zone.now %>
+    id: 999
+
 basic:
     name: Basic User
     email: "basic@test.org"
@@ -50,6 +59,7 @@ complete:
     email: "complete@test.org"
     password_digest: <%= User.digest('complete') %>
     admin: true
+    blogger: true
     activated: true
     activated_at: <%= Time.zone.now %>
 

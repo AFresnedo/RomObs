@@ -7,6 +7,7 @@
     <li id="blog-<%= blog.id %>">
       <%= link_to blog.title, blog_path(blog.id) %>
       <p><em><%= blog.descript %></em></p>
+      <p><em>Author: <%= User.find_by_id(blog.user_id).name %> </em></p>
       <%# TODO change admin to blogger %>
       <% if current_user && current_user.admin? %>
         Admin Tools | <%= link_to "edit", edit_blog_path(blog.id) %>

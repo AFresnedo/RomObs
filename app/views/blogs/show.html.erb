@@ -3,6 +3,7 @@
   <% provide(:title, @blog.title) %>
   <h3> <%= @blog.title %> </h3>
   <em><%= @blog.descript %></em>
+  <em>Author: <%= @blog.user_id %></em>
   <p> <%= @blog.body %> </p>
 <% else %>
   <% provide(:title, "No Post") %>
