@@ -1,9 +1,24 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  title: MyString
-  body: MyText
+basic:
+    title: "title here"
+    descript: "descript here"
+    body: "body here"
 
-two:
-  title: MyString
-  body: MyText
+old:
+    title: "im old"
+    descript: "im the middle one"
+    body: "wearing out"
+    created_at: <%= 10.minutes.ago %>
+
+new:
+    title: "im new"
+    descript: "im the young one"
+    body: "fresh"
+    created_at: <%= Time.zone.now %>
+
+oldest:
+    title: "im oldest"
+    descript: "im the ancient one"
+    body: "gone"
+    created_at: <%= 2.hours.ago %>

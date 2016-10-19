@@ -36,13 +36,6 @@ class ArticleTest < ActiveSupport::TestCase
     assert_not article.valid?
   end
 
-  test "blank title is invalid" do
-    article = @new_contact
-    assert article.valid?
-    article.title = " " * 10
-    assert_not article.valid?
-  end
-
   test "blank body is invalid" do
     article = @new_contact
     assert article.valid?

@@ -32,7 +32,6 @@ class Article < ApplicationRecord
   # perform custom validation for page attribute
   validates_with PageExists
   # attributes: title:string, body:text, page:string
-  validates :title, presence: true
   validates :body, presence: true
   # consider having some order or position
 
