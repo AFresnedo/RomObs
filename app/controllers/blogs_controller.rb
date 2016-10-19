@@ -1,5 +1,6 @@
 class BlogsController < ApplicationController
-  #TODO callbacks
+  before_action :blogger_user, only: [:new, :create]
+  before_action :blog_owner, only: [:edit, :update, :destroy]
 
   def index
     # all blogs, paginated, in order of newest created
@@ -52,5 +53,15 @@ class BlogsController < ApplicationController
 
     def blog_params
       params.require(:blog).permit(:title, :descript, :body)
+    end
+
+    def blogger_user
+      redirect_to blogs_path if !current_user or !current_user.blogger?
+    end
+
+    def blog_owner
+      # all blogs have unique IDs, checking if the user owns this blog
+      @blog = current_user.blogs.find_by_id(params[:id])
+      redirect_to root_url if @blog.nil?
     end
 end
