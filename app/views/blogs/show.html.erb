@@ -3,8 +3,13 @@
   <% provide(:title, @blog.title) %>
   <h3> <%= @blog.title %> </h3>
   <em><%= @blog.descript %></em>
-  <em>Author: <%= @blog.user_id %></em>
+  <em>Author: <%= User.find_by_id(@blog.user_id).name %></em>
   <p> <%= @blog.body %> </p>
+  <h4> Comments </h4>
+  <%= render @comments %>
+  <% if current_user %>
+    <%= render 'comments/new' %>
+  <% end %>
 <% else %>
   <% provide(:title, "No Post") %>
   <h1>Post not found.</h1>

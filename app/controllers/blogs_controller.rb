@@ -9,6 +9,11 @@ class BlogsController < ApplicationController
 
   def show
     @blog = Blog.find_by_id(params[:id])
+    # show all comments for this blog, paginated, in order of newest created
+    @comments = @blog.comments.paginate(page: params[:page], per_page: 5)
+    # form for creating new comment
+    # TODO remove visibility for blog_id and user_id
+    @comment = Comment.new(blog_id: @blog.id, user_id: current_user.id)
   end
 
   def new

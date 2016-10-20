@@ -3,6 +3,7 @@ class ArticlesController < ApplicationController
   before_action :admin_user
 
   def new
+    # TODO autofill page from about/contact/home
     @article = Article.new(page: params[:page])
   end
 

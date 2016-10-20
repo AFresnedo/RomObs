@@ -14,6 +14,7 @@ class User < ApplicationRecord
   # allow_nil allows empty password updates...meh feature
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
   has_many :blogs, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   def remember
     # self uses attr_accessor method

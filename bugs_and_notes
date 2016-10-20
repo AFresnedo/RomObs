@@ -19,3 +19,13 @@ being saved but this is done at the wrong level...it is a property of the
 article model because it is an attribute of the article model so it should be
 a validation in the article model source code instead of being a check in the
 controller create
+
+form field / controller / create new errors:
+    -in two cases there are auto-fill pages that should be either locked or
+    blank
+
+    -article controller new action's form of page needs to be autofilled and/or
+    locked
+
+    -comments controller new action's form of both user_id and blog_id needs to
+    be autofilled and/or locked
