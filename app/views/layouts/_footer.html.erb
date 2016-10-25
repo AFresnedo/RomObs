@@ -4,8 +4,18 @@
       <div class="col-xs-6" id="footerLeft">
         <nav>
           <ul>
-            <li><%= link_to "Latest Entry", '#' %></li>
-            <li><%= link_to "Latest Comment", '#' %></li>
+            <% if blog = Blog.first %>
+              <% url = blog_path(blog.id) %>
+              <li><%= link_to "Latest Entry", url %></li>
+            <% else %>
+              <%# No Latest Blog Entry Link %>
+            <% end %>
+            <% if comment = Comment.first %>
+              <% url = blog_path(comment.blog_id) %>
+              <li><%= link_to "Latest Comment", url %></li>
+            <% else %>
+              <%# No Latest Comment Link %>
+            <% end %>
           </ul>
         </nav>
       </div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161025185244) do
+ActiveRecord::Schema.define(version: 20161025214938) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title"
@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20161025185244) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "page"
+    t.string   "purpose"
   end
 
   create_table "blogs", force: :cascade do |t|
@@ -27,6 +28,7 @@ ActiveRecord::Schema.define(version: 20161025185244) do
     t.datetime "updated_at", null: false
     t.string   "descript"
     t.integer  "user_id"
+    t.string   "topic"
     t.index ["created_at"], name: "index_blogs_on_created_at"
     t.index ["user_id"], name: "index_blogs_on_user_id"
   end
@@ -38,13 +40,6 @@ ActiveRecord::Schema.define(version: 20161025185244) do
     t.datetime "updated_at", null: false
     t.integer  "blog_id"
     t.index ["blog_id", "created_at"], name: "index_comments_on_blog_id_and_created_at"
-  end
-
-  create_table "short_texts", force: :cascade do |t|
-    t.string   "body"
-    t.string   "page"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

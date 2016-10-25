@@ -3,7 +3,8 @@ require 'test_helper'
 class ArticleTest < ActiveSupport::TestCase
   def setup
     @aboutArticle = articles(:aboutPageArticleOne)
-    @new_contact = Article.new(title: "title", body: "body", page: 'contact')
+    @new_contact = Article.new(title: "title", body: "body", page: 'contact',
+                               purpose: 'listing')
   end
 
   test "valid contact article is saved" do

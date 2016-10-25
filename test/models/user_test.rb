@@ -102,7 +102,7 @@ class UserTest < ActiveSupport::TestCase
   test "dependent blogs are destroyed" do
     # do not use blogger, all blogs assigned to him
     user = @complete
-    user.blogs.create!(title: 'title', descript: 'hi', body: 'eh')
+    user.blogs.create!(title: 'title', descript: 'hi', body: 'eh', topic: 'hm')
     assert_difference 'Blog.count', -1 do
       user.destroy
     end

@@ -46,7 +46,7 @@ class ArticlesController < ApplicationController
   private
 
     def article_params
-      params.require(:article).permit(:title, :body, :page)
+      params.require(:article).permit(:title, :body, :page, :purpose)
     end
 
     # some meta programming to say "page_path" where page depends on article

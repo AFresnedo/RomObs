@@ -39,4 +39,10 @@ class BlogTest < ActiveSupport::TestCase
     assert_equal Blog.last, blogs(:old)
   end
 
+  test "topic is less than 21 characters" do
+    assert @basic.valid?
+    @basic.topic = 'a' * 21
+    assert_not @basic.valid?
+  end
+
 end

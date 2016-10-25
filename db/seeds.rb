@@ -41,6 +41,11 @@ User.create!(name:  "Complete User",
              activated: true,
              activated_at: Time.zone.now)
 
+Article.create!(title: "seed",
+                body: "This is the first thought of the day.",
+                page: 'welcome',
+                purpose: 'totd')
+
 40.times do |n|
   name  = Faker::Name.name
   email = "example-#{n+1}@railstutorial.org"
@@ -54,7 +59,7 @@ User.create!(name:  "Complete User",
 end
 
 4.times do
-  article = Article.new(page: 'about')
+  article = Article.new(page: 'about', purpose: 'null')
   heading = Faker::Lorem.sentences(1)
   content = Faker::Lorem.paragraphs(4)
   article.title = heading
@@ -63,7 +68,7 @@ end
 end
 
 3.times do
-  article = Article.new(page: 'contact')
+  article = Article.new(page: 'contact', purpose: 'null')
   title = Faker::Lorem.sentences(1)
   body = Faker::Lorem.paragraphs(4)
   article.title = title
@@ -74,9 +79,11 @@ end
 10.times do
   blogger = User.find_by(email: 'blogger@test.org')
   blog = Blog.new
+  topic = 'world of ideas'
   title = Faker::Lorem.sentences(1)
   descript = Faker::Lorem.sentences(1)
   body = Faker::Lorem.paragraphs(10)
+  blog.topic = topic
   blog.title = title
   blog.descript = descript
   blog.body = body
@@ -86,8 +93,10 @@ end
 
 5.times do
   blogger = User.find_by(email: 'complete@test.org')
+  topic = 'short'
   title = Faker::Lorem.sentences(1)
   descript = Faker::Lorem.sentences(1)
   body = Faker::Lorem.paragraphs(10)
-  blogger.blogs.create!(title: title, descript: descript, body: body)
+  blogger.blogs.create!(title: title, descript: descript, body: body, topic:
+                        topic)
 end

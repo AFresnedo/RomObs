@@ -44,8 +44,9 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
     log_in_as(@admin, 'admin', '1')
     assert_difference 'Article.count', 1 do
       post articles_path, params: { article: { title: 'title',
-                                              body: 'body',
-                                              page: 'about' } }
+                                               body: 'body',
+                                               page: 'about',
+                                               purpose: 'filler'} }
     end
   end
 

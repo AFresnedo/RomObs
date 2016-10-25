@@ -1,18 +1,21 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 basic:
+    topic: "world crisis"
     title: "title here"
     descript: "descript here"
     body: "body here"
     user_id: 999
 
 old:
+    topic: "political figures"
     title: "im old"
     descript: "im the middle one"
     body: "wearing out"
     created_at: <%= 10.minutes.ago %>
     user_id: 999
 new:
+    topic: "inconsistancies"
     title: "im new"
     descript: "im the young one"
     body: "fresh"
@@ -20,6 +23,7 @@ new:
     user_id: 999
 
 oldest:
+    topic: "world of ideas"
     title: "im oldest"
     descript: "im the ancient one"
     body: "gone"

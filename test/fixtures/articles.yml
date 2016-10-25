@@ -51,18 +51,22 @@ big_body:
   fermentum vel mi eu, vehicula sodales quam. Nunc aliquam id lectus ac
   vulputate."
   page: 'contact'
+  purpose: 'body'
 
 two:
   title: MyString
   body: MyText
   page: 'about'
+  purpose: 'misc'
 
 aboutPageArticleOne:
     title: First Article
     body: "My name is Johnny Smitherson. I am 957 years old. Hello!"
     page: 'about'
+    purpose: 'personal'
 
 contactArticle:
     title: 'contact'
     body: 'i am on contact page'
     page: 'contact'
+    purpose: 'header'

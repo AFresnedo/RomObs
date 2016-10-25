@@ -8,4 +8,5 @@ module PagesHelper
   def edit_path page
     send("#{page}_edit_path")
   end
+
 end

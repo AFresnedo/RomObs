@@ -1,6 +1,6 @@
-style everything
+delete history of articles so, for example, not 1000 thoughts of the day
 
-change home page to welcome page
+style everything
 
 "fill" (bootstrap) blog index page
     -you are 1920x1080, others aren't
@@ -51,9 +51,6 @@ blogs
     small, misc., world, permanent, fleeting, curiosities, public figures,
     periphery, world of ideas, central, intelectual (22 total)
 
-thought of the day
-    -possible homepage article scroll
-
 links (sidebar?)
 
 rss feed (sidebar or footer?)
@@ -83,6 +80,7 @@ security
     -verify no sql injection vulnerabilities
 
 real documentation (of what? not really the calendar)
+    -maybe some tips/info about how text objects are setup (purpose?)
 
 pictures & uploads
     -for blogs and articles

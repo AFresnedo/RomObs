@@ -37,6 +37,10 @@ module SessionsHelper
     user == current_user
   end
 
+  def blog_owner blog
+    current_user == User.find_by_id(blog.user_id)
+  end
+
   def forget user
     # delete token digest in db
     user.forget

@@ -2,20 +2,20 @@
 <%# TODO filter functionality %>
 <h1>All (filter output here)</h1>
 
-<ul class="blog-index">
-  <% @blogs.each do |blog| %>
-    <li id="blog-<%= blog.id %>">
-      <%= link_to blog.title, blog_path(blog.id) %>
-      <p><em><%= blog.descript %></em></p>
-      <p><em>Author: <%= User.find_by_id(blog.user_id).name %> </em></p>
-      <%# TODO change admin to blogger %>
-      <% if current_user && current_user.admin? %>
-        Admin Tools | <%= link_to "edit", edit_blog_path(blog.id) %>
-      <%= link_to "delete", blog, method: :delete,
+<div class="container">
+  <ul class="blog-index">
+    <% @blogs.each do |blog| %>
+      <li id="blog-<%= blog.id %>">
+        <%= link_to blog.title, blog_path(blog.id) %>
+        <p><em><%= blog.descript %></em></p>
+        <p><em>Author: <%= User.find_by_id(blog.user_id).name %> </em></p>
+        <% if current_user && blog_owner(blog) %>
+          Admin Tools | <%= link_to "edit", edit_blog_path(blog.id) %>
+        <%= link_to "delete", blog, method: :delete,
           data: { confirm: "You sure?" } %>
       <% end %>
-    </li>
-  <% end %>
-</ul>
-
-<%= will_paginate %>
+      </li>
+    <% end %>
+  </ul>
+  <%= will_paginate %>
+</div>

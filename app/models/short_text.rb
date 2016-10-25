@@ -1,2 +1,0 @@
-class ShortText < ApplicationRecord
-end

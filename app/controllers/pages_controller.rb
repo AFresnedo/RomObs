@@ -3,11 +3,13 @@ class PagesController < ApplicationController
 
   def welcome
     @page = 'welcome'
+    @articles = Article.where(page: @page)
     @mode = 'view'
   end
 
   def welcome_edit
     @page = 'welcome'
+    @articles = Article.where(page: @page)
     @mode = 'edit'
   end
 
