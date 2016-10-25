@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  before_action :admin_user, only: [:about_edit, :contact_edit]
+  before_action :admin_user, only: [:about_edit, :contact_edit, :info_edit]
 
   def welcome
     @page = 'welcome'

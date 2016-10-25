@@ -1,13 +1,16 @@
 <%= provide(:title, "Welcome") %>
 <div class="container">
   <div class="row">
-    <div class="col-sm-12">
+    <div class="col-sm-6">
       <h1>Roman's Observatory</h1>
       <%# change to bootstrap for auto-resizing, unknown how to target %>
       <%= image_tag("Palomar_Observatory_2.jpg", alt: "Observatory Picture",
                    size: image_resize(1280.00, 900.00, 25.00)) %>
       <h3>A Webblog For Observers of Connections</h3>
     </div>
+    <div class="col-sm-6">
+      <h3>Thought of the Day</h3>
+      <q>This website will never ever be finished.</q>
   </div>
   <div class="row">
     <div class="col-sm-6">

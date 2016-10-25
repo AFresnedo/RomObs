@@ -5,8 +5,8 @@ Rails.application.routes.draw do
 
   # front page routes
   root 'pages#welcome'
-  get '/welcome', to: 'pages#home'
-  get '/welcome/edit', to: 'pages#home_edit'
+  get '/welcome', to: 'pages#welcome'
+  get '/welcome/edit', to: 'pages#welcome_edit'
 
   # about page routes
   get '/about', to: 'pages#about'
