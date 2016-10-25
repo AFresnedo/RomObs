@@ -1,14 +1,13 @@
 class PagesController < ApplicationController
-  # logged_in_user must be before admin_user to prevent nil.admin? check
-  before_action :logged_in_user, only: [:about_edit, :contact_edit]
   before_action :admin_user, only: [:about_edit, :contact_edit]
-  def home
-    @page = 'home'
+
+  def welcome
+    @page = 'welcome'
     @mode = 'view'
   end
 
-  def home_edit
-    @page = 'home'
+  def welcome_edit
+    @page = 'welcome'
     @mode = 'edit'
   end
 
@@ -36,6 +35,19 @@ class PagesController < ApplicationController
     @articles = Article.where(page: @page)
     @mode = 'edit'
     render 'contact'
+  end
+
+  def info
+    @page = 'info'
+    @articles = Article.where(page: @page)
+    @mode = 'view'
+  end
+
+  def info_edit
+    @page = 'info'
+    @articles = Article.where(page: @page)
+    @mode = 'edit'
+    render 'info'
   end
 
 end

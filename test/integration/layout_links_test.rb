@@ -10,7 +10,7 @@ class LayoutLinksTest < ActionDispatch::IntegrationTest
     log_in_as @basic, 'basic'
     assert is_logged_in?
     get root_path
-    assert_template 'home'
+    assert_template 'welcome'
     # check links
     assert_select 'a', 'Users'
   end
@@ -20,7 +20,7 @@ class LayoutLinksTest < ActionDispatch::IntegrationTest
     log_out
     assert_not is_logged_in?
     get root_path
-    assert_template 'home'
+    assert_template 'welcome'
     assert_select 'a', 'Log in'
     assert_select 'a', { count: 0, text: 'Users' }
   end
@@ -29,7 +29,7 @@ class LayoutLinksTest < ActionDispatch::IntegrationTest
     log_in_as @admin, 'admin'
     assert is_logged_in?
     get root_path
-    assert_template 'home'
+    assert_template 'welcome'
     assert_select 'a', { count: 1, text: 'Edit Page' }
     get about_path
     assert_template 'about'
@@ -43,7 +43,7 @@ class LayoutLinksTest < ActionDispatch::IntegrationTest
     log_out
     assert_redirected_to root_path
     follow_redirect!
-    assert_template 'home'
+    assert_template 'welcome'
     assert_select 'a', { count: 0, text: 'Edit Page' }
   end
 end

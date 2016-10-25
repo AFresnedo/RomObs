@@ -1,3 +1,10 @@
+style everything
+
+change home page to welcome page
+
+"fill" (bootstrap) blog index page
+    -you are 1920x1080, others aren't
+
 blog index:
     -create a front-end filter to hide results not matching filter (rails will
     still have sent all the blogs to the page via the controller, so filtering
@@ -39,6 +46,10 @@ blogs
      blog: president, politics, corruption, police budget, etc etc
       -have tags inputted as: phantom crusaders; corruption; politics
       -tags will be shown in a long string color coded (maybe w/o meaning)
+    -topics: fallacies, incoherencies, language, about life, values, power,
+    beliefs, power, questions, random observations, almost funny, large and
+    small, misc., world, permanent, fleeting, curiosities, public figures,
+    periphery, world of ideas, central, intelectual (22 total)
 
 thought of the day
     -possible homepage article scroll
@@ -51,6 +62,9 @@ comments
     -belong to blogs & commentator; this also means that destroy should be
      automatically triggered (callback) on comment when either blog/commentator
      are destroyed
+    -will eventually become a nested resource (exclusive to blogs) or a concern
+    (used as a nested resource by multiple resources)
+    -reference other user & quote (using a well) text
 
 analytics & infographics
 
@@ -68,21 +82,10 @@ security
     -cross-server whatever thingy
     -verify no sql injection vulnerabilities
 
-real documentation
+real documentation (of what? not really the calendar)
 
 pictures & uploads
     -for blogs and articles
-
-resources:
-    -TODO good example of a nested resource
-    -nested resources, best ruby practices have any objects to be manipualted
-     through the web as resources (iirc)
-
-concerns:
-    -resources that may be used by many other resources, for example create
-     a "commentable" concern that is basically a to-be-nested comments resource
-     so you can so "blogs" and "articles" are "commentable" and they both get the
-     nested comments resource
 
 cleanup routes
 

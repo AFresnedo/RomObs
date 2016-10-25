@@ -29,3 +29,21 @@ form field / controller / create new errors:
 
     -comments controller new action's form of both user_id and blog_id needs to
     be autofilled and/or locked
+
+bootstrap:
+
+-replace useless erb with bootstrap
+    -erb is used for things like dynamically creating a list based on database
+    objects...it is NOT for adding a static picture ffs
+
+-ensure widith=device-width
+
+-containers are not nestable
+
+-use .container when you want to allow containers to the left/right of this one
+
+-else use .container-fluid to be explicit
+
+-specifiying xm/sm,etc just tells it when to automatically (without measuring)
+stack the columns...so for user interface design preferences not any mechanical
+thing
