@@ -1,3 +1,5 @@
+logged_out_user bug when looking at blog entries because of comment
+
 test helpers, views, tests, and controller helpers:
 
 i had some bugs occur because of misunderstanding the nature of helpers...i use

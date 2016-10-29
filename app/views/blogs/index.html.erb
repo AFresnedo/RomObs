@@ -21,6 +21,8 @@
   <%# TODO filter output %>
   <h3>Topics: All</h3>
 
+  <!-- TODO rewrite this entire index to only display filtered results according to
+     - page number -->
   <div class="container">
     <ul id="blog-index">
       <% @blogs.each do |blog| %>
@@ -37,7 +39,6 @@
         </li>
       <% end %>
     </ul>
-    <%= will_paginate %>
   </div>
 
 </div>

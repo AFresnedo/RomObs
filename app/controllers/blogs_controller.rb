@@ -5,7 +5,7 @@ class BlogsController < ApplicationController
 
   def index
     blogs = Blog.all
-    @blogs = blogs.paginate(page: params[:page], per_page: 10)
+    @blogs = blogs
     @topics = get_topics(blogs)
     @authors = get_authors(blogs)
     @all = blogs
@@ -17,6 +17,7 @@ class BlogsController < ApplicationController
     @comments = @blog.comments.paginate(page: params[:page], per_page: 5)
     # form for creating new comment
     # TODO remove visibility for blog_id and user_id
+    # TODO fix bug for logged_out user, maybe if logged_in here and in view
     @comment = Comment.new(blog_id: @blog.id, user_id: current_user.id)
   end
 
