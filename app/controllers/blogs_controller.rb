@@ -1,10 +1,14 @@
 class BlogsController < ApplicationController
+  include BlogsHelper
   before_action :blogger_user, only: [:new, :create]
   before_action :blog_owner, only: [:edit, :update, :destroy]
 
   def index
-    # all blogs, paginated, in order of newest created
-    @blogs = Blog.all.paginate(page: params[:page], per_page: 10)
+    blogs = Blog.all
+    @blogs = blogs.paginate(page: params[:page], per_page: 10)
+    @topics = get_topics(blogs)
+    @authors = get_authors(blogs)
+    @all = blogs
   end
 
   def show

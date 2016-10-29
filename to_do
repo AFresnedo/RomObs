@@ -1,3 +1,5 @@
+add author name to blog and replace database hits in index and blogshelper
+
 delete history of articles so, for example, not 1000 thoughts of the day
 
 style everything

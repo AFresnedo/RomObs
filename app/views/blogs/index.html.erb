@@ -1,21 +1,43 @@
 <% provide(:title, 'Blog') %>
-<%# TODO filter functionality %>
-<h1>All (filter output here)</h1>
 
 <div class="container">
-  <ul class="blog-index">
-    <% @blogs.each do |blog| %>
-      <li id="blog-<%= blog.id %>">
-        <%= link_to blog.title, blog_path(blog.id) %>
-        <p><em><%= blog.descript %></em></p>
-        <p><em>Author: <%= User.find_by_id(blog.user_id).name %> </em></p>
-        <% if current_user && blog_owner(blog) %>
-          Admin Tools | <%= link_to "edit", edit_blog_path(blog.id) %>
-        <%= link_to "delete", blog, method: :delete,
-          data: { confirm: "You sure?" } %>
-      <% end %>
+  <h3>Filter</h3>
+  <ul class="dropdown">
+    <% @topics.each do |topic| %>
+      <li id="topic-<%= topic %>">
+        <%= topic %>
+      </li>
+    <% end %>
+    <% @authors.each do |author| %>
+      <li id="author-<%= author %>">
+        <%= author %>
       </li>
     <% end %>
   </ul>
-  <%= will_paginate %>
+</div>
+
+<div class="container">
+  <h1>Index</h1>
+  <%# TODO filter output %>
+  <h3>Topics: All</h3>
+
+  <div class="container">
+    <ul id="blog-index">
+      <% @blogs.each do |blog| %>
+        <li id="topic-<%= blog.topic %>-author-<%= author_name(blog.user_id) %>">
+          <%= link_to blog.title, blog_path(blog.id) %>
+          <p><em><%= blog.descript %></em></p>
+          <%# TODO fix database hits %>
+          <p><em>Author: <%= author_name(blog.user_id) %> </em></p>
+          <% if current_user && blog_owner(blog) %>
+            Admin Tools | <%= link_to "edit", edit_blog_path(blog.id) %>
+          <%= link_to "delete", blog, method: :delete,
+            data: { confirm: "You sure?" } %>
+        <% end %>
+        </li>
+      <% end %>
+    </ul>
+    <%= will_paginate %>
+  </div>
+
 </div>
