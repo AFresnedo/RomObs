@@ -1,6 +1,6 @@
 <% provide(:title, 'Blog') %>
 
-<div class="container">
+<div id="blog-index-filter-container" class="container">
   <h3>Filter</h3>
   <div class="dropdown">
     <button class="btn btn-default dropdown-toggle" type="button" id="menu1"
@@ -25,10 +25,11 @@
 </div>
 
 <div class="container">
-  <h1>Index</h1>
+  <h1 id="index-header">Index</h1>
   <%# TODO filter output %>
   <div class="container">
     <ul id="blog-index">
+      <div id="blog-index-top-page-select"> <%= will_paginate %> </div>
       <% @blogs.each do |blog| %>
         <li class="ii" id="topic-<%= blog.topic %>-author-<%= author_name(blog.user_id) %>">
           <%= link_to blog.title, blog_path(blog.id), class: "ii-title" %>
@@ -36,9 +37,9 @@
           <%# TODO fix database hits %>
           <p><em>Author: <%= author_name(blog.user_id) %> </em></p>
           <% if current_user && blog_owner(blog) %>
-            Admin Tools | <%= link_to "edit", edit_blog_path(blog.id) %>
+            <p>Options | <%= link_to "edit", edit_blog_path(blog.id) %>
           <%= link_to "delete", blog, method: :delete,
-            data: { confirm: "You sure?" } %>
+            data: { confirm: "You sure?" } %> </p>
         <% end %>
         </li>
       <% end %>

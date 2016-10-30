@@ -2,13 +2,39 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+// Filter
+#blog-index-filter-container {
+  padding-left: 24px;
+}
+
 li.dropdown-header {
   text-transform: uppercase;
   color: #FFFFFF;
   background-color: #71B5AD;
 }
 
+// Index
+
+#blog-index-top-page-select {
+  margin-top: -45px;
+}
+
+#index-header {
+  padding-left: 12px;
+}
+
 a.ii-title  {
   font-weight: bold;
   font-size: 150%;
+}
+
+
+#blog-index {
+  list-style-type: none;
+  padding: 0px;
+}
+
+ul.ii {
+  margin: 0px;
+  padding: 0px;
 }
