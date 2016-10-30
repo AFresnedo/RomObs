@@ -2,7 +2,7 @@
 module BlogsHelper
   def get_topics blogs
     topics = []
-    blogs.each do |blog|
+    Blog.all.each do |blog|
       topics.append blog.topic unless topics.include?(blog.topic)
     end
     return topics
@@ -10,7 +10,7 @@ module BlogsHelper
 
   def get_authors blogs
     ids = []
-    blogs.each do |blog|
+    Blog.all.each do |blog|
       ids.append blog.user_id unless ids.include?(blog.user_id)
     end
     author = []

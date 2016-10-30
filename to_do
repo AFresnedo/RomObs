@@ -1,3 +1,13 @@
+front end design notes:
+
+    -make headers in blog index filter option stand out
+
+add second, but preceeding filter, through a calendar widget that sets the
+timeframe of displayed blogs
+
+add created_at, topic index for blogs (also make sure all indexes have
+created_at as part of their index if the default scope is set to that)
+
 add author name to blog and replace database hits in index and blogshelper
 
 delete history of articles so, for example, not 1000 thoughts of the day

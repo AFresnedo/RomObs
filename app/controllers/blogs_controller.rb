@@ -4,11 +4,20 @@ class BlogsController < ApplicationController
   before_action :blog_owner, only: [:edit, :update, :destroy]
 
   def index
-    blogs = Blog.all
+    # TODO seperate filter, preceeding all, that sets time frame
+
+    if !params[:topic].nil? && !params[:author].nil?
+      blogs = Blog.where(topic: params[:topic], user_id: params[:author])
+    elsif !params[:topic].nil?
+      blogs = Blog.where(topic: params[:topic])
+    elsif !params[:author].nil?
+      blogs = Blog.where(user_id: params[:author])
+    else
+      blogs = Blog.all
+    end
     @blogs = blogs.paginate(page: params[:page], per_page: 10)
     @topics = get_topics(blogs)
     @authors = get_authors(blogs)
-    @all = blogs
   end
 
   def show

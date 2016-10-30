@@ -2,30 +2,36 @@
 
 <div class="container">
   <h3>Filter</h3>
-  <ul class="dropdown">
-    <% @topics.each do |topic| %>
-      <li id="topic-<%= topic %>">
-        <%= topic %>
-      </li>
-    <% end %>
-    <% @authors.each do |author| %>
-      <li id="author-<%= author %>">
-        <%= author %>
-      </li>
-    <% end %>
-  </ul>
+  <div class="dropdown">
+    <button class="btn btn-default dropdown-toggle" type="button" id="menu1"
+      data-toggle="dropdown">Options <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+      <li class="dropdown-header">Topics</li>
+      <% @topics.each do |topic| %>
+        <li id="topic-<%= topic %>">
+          <%= link_to topic, blogs_path(topic: topic) %>
+        </li>
+      <% end %>
+      <li class="divider"></li>
+      <li class="dropdown-header">Authors</li>
+      <% @authors.each do |author| %>
+        <li id="author-<%= author %>">
+          <%# TODO fix non-unique name bug, but it is also bugged in blog_helper %>
+          <%= link_to author, blogs_path(author: User.find_by(name: author)) %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
 </div>
 
 <div class="container">
   <h1>Index</h1>
   <%# TODO filter output %>
-  <h3>Topics: All</h3>
-
   <div class="container">
     <ul id="blog-index">
       <% @blogs.each do |blog| %>
-        <li id="topic-<%= blog.topic %>-author-<%= author_name(blog.user_id) %>">
-          <%= link_to blog.title, blog_path(blog.id) %>
+        <li class="ii" id="topic-<%= blog.topic %>-author-<%= author_name(blog.user_id) %>">
+          <%= link_to blog.title, blog_path(blog.id), class: "ii-title" %>
           <p><em><%= blog.descript %></em></p>
           <%# TODO fix database hits %>
           <p><em>Author: <%= author_name(blog.user_id) %> </em></p>
