@@ -3,7 +3,7 @@
     <%= form_for(@comment) do |f| %>
       <%= render 'shared/error_messages' %>
 
-      <%= f.label :body %>
+      <%= f.label "Write a comment" %>
       <%= f.text_area :body, class: 'form-control' %>
 
       <div id="comment-new-userid">
