@@ -86,6 +86,7 @@ forum
 password reset
 
 security
+    -in addition to strong params, ensure userid == current_user
     -check strong params for all external inputs
     -https
     -cross-server whatever thingy

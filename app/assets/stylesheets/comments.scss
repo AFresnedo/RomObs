@@ -1,3 +1,21 @@
 // Place all the styles related to the comments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// hide unwanted form elements
+#comment-new-userid {
+  display: none;
+}
+
+#comment-new-blogid {
+  display: none;
+}
+
+// TODO figure out something better, hard to set length
+#comment-options {
+  border-top: 1px solid $gray-light;
+}
+
+#edit-comment {
+  width: 100px;
+}

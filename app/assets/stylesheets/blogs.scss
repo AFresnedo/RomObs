@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-// Filter
+// Index Filter
 #blog-index-filter-container {
   padding-left: 24px;
 }
@@ -37,4 +37,47 @@ a.ii-title  {
 ul.ii {
   margin: 0px;
   padding: 0px;
+}
+
+#blog-index-author {
+  margin-top: -10px;
+}
+
+#blog-index-descript {
+  font-size: 120%
+}
+
+
+// Show
+
+#blog-show-title {
+  // margin-bottom: 20px;
+  color: $brand-primary;
+  font-weight: bold;
+}
+
+#blog-show-descript {
+  font-size: 120%
+}
+
+#blog-show-author {
+  margin-top: 24px;
+  // margin-bottom: -8px;
+}
+
+#blog-body {
+  font-family: "Arial";
+  font-size: 150%
+}
+
+#blog-show-comment-header {
+  margin-top: 24px;
+  color: $brand-primary;
+  font-weight: bold;
+}
+
+ul.comments {
+  li {
+    margin-left: -28px;
+  }
 }

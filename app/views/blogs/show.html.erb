@@ -1,13 +1,13 @@
 <%# TODO change conditional to redirect if !@blog %>
 <% if @blog %>
   <% provide(:title, @blog.title) %>
-  <h3> <%= @blog.title %> </h3>
-  <em><%= @blog.descript %></em>
-  <em>Author: <%= User.find_by_id(@blog.user_id).name %></em>
-  <p> <%= @blog.body %> </p>
-  <h4> Comments </h4>
+  <h3 id="blog-show-title"> <%= @blog.title %> </h3>
+  <p id="blog-show-descript"><%= @blog.descript %></p>
+  <p id="blog-show-author"><em>Author: <%= User.find_by_id(@blog.user_id).name %></em></p>
+  <article id="blog-body"> <%= @blog.body %> </article>
+  <h4 id="blog-show-comment-header"> Comments </h4>
   <%= render @comments %>
-  <% if current_user %>
+  <% if logged_in? %>
     <%= render 'comments/new' %>
   <% end %>
 <% else %>

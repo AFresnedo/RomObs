@@ -33,9 +33,9 @@
       <% @blogs.each do |blog| %>
         <li class="ii" id="topic-<%= blog.topic %>-author-<%= author_name(blog.user_id) %>">
           <%= link_to blog.title, blog_path(blog.id), class: "ii-title" %>
-          <p><em><%= blog.descript %></em></p>
+          <p id="blog-index-descript"><%= blog.descript %></p>
           <%# TODO fix database hits %>
-          <p><em>Author: <%= author_name(blog.user_id) %> </em></p>
+          <p id="blog-index-author"><em>Author: <%= author_name(blog.user_id) %> </em></p>
           <% if current_user && blog_owner(blog) %>
             <p>Options | <%= link_to "edit", edit_blog_path(blog.id) %>
           <%= link_to "delete", blog, method: :delete,

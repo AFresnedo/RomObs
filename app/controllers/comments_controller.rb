@@ -5,6 +5,7 @@ class CommentsController < ApplicationController
   def create
     # TODO figure out if possible to get hidden auto-filled fields here
     @comment = Comment.new(comment_params)
+    # TODO break if user_id doesn't match logged_in user
     if @comment.save
       flash[:success] = "Posted comment."
       redirect_to blog_path(@comment.blog_id)

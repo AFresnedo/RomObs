@@ -1,15 +1,17 @@
+<%# TODO fix unnecessary db hits %>
 <ul class="comments">
   <li id="comment-<%= comment.id %>">
-    <h5>Comment By: <%= User.find_by_id(comment.user_id).name  %></h5>
+    <h5><em>By: <%= User.find_by_id(comment.user_id).name  %></em>
+      <% if current_user?(User.find_by_id(comment.user_id))%>
+        | Comment:
+      <% end %>
+      <% if current_user?(User.find_by_id(comment.user_id))%>
+        <%# TODO send id of comment %>
+        <%= link_to "delete", comment, method: :delete,
+        data: { confirm: "You sure?" } %>
+      <% end %>
+    </h5>
     <span class="content"><%= comment.body %></span>
     <%# TODO determine how best to update the comment %>
-    <%# TODO fix unnecessary db hits %>
-    <% if current_user?(User.find_by_id(comment.user_id))%>
-      Options |
-      <%# TODO send id of comment %>
-      <%= link_to "delete", comment, method: :delete,
-      data: { confirm: "You sure?" } %>
-    <% end %>
-
   </li>
 </ul>

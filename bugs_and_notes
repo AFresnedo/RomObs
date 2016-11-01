@@ -1,3 +1,14 @@
+blog show doesn't understand article newline, the problem is that whatever is
+saved during the form post gets transferred into its symbol form and then when
+the body is loaded the only element tags that exist are stuff like <span>
+around everything
+    -i think mostly the problem is that these helpers aren't very good
+    -to clarify, the body has the whitespace intact (you can tell by reading
+    the sourcecode when the page is loaded, the whitespace is shown just html
+    doesn't care about it when the browser isn't reading the source code...so
+    instead of just rendering the erb inserting the body you must process the
+    body and then insert it
+
 test helpers, views, tests, and controller helpers:
 
 i had some bugs occur because of misunderstanding the nature of helpers...i use
