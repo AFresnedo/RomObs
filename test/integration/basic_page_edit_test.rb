@@ -19,9 +19,7 @@ class BasicPageEditTest < ActionDispatch::IntegrationTest
     assert_template 'articles/_article'
     # .articles is the css selector for class articles
     assert_select '.container' do
-      assert_select '.articles' do
-        assert_select 'h3', "First Article"
-      end
+      assert_select 'h3', "First Article"
     end
     get about_edit_path
     assert_response :redirect
@@ -37,20 +35,18 @@ class BasicPageEditTest < ActionDispatch::IntegrationTest
     get about_path
     assert_template 'about'
     assert_select '.container' do
-      assert_select '.articles' do
-        assert_select 'h3', "First Article"
-        assert_select 'span'
-        assert_select '.content', "My name is Johnny Smitherson. I am 957 years old. Hello!"
+      assert_select 'h3', "First Article"
+      assert_select 'span'
+      assert_select '.article-content' do
         assert_select 'a', 0
       end
     end
     get about_edit_path
     assert_response :success
     assert_select '.container' do
-      assert_select '.articles' do
-        assert_select 'h3', "First Article"
-        assert_select 'span'
-        assert_select '.content', "My name is Johnny Smitherson. I am 957 years old. Hello!"
+      assert_select 'h3', "First Article"
+      assert_select 'span'
+      assert_select '.article-content' do
         assert_select 'a'
       end
     end
@@ -68,18 +64,16 @@ class BasicPageEditTest < ActionDispatch::IntegrationTest
     get contact_path
     assert_template 'contact'
     assert_select '.container' do
-      assert_select '.articles' do
-        assert_select 'h3'
-        assert_select '.content'
+      assert_select 'h3'
+      assert_select '.article-content' do
         assert_select 'a', 0
       end
     end
     get contact_edit_path
     assert_response :success
     assert_select '.container' do
-      assert_select '.articles' do
-        assert_select 'h3', 'contact'
-        assert_select '.content', 'i am on contact page'
+      assert_select 'h3', 'contact'
+      assert_select '.article-content' do
         assert_select 'a'
       end
     end
