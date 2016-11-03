@@ -1,5 +1,5 @@
 <h3 class="article-title"><%= article.title %></h3>
-<span class="article-content"><%== article.body %>
+<span class="article-content"><%== to_html(article.body) %>
 <% if @mode == 'edit' %>
   | <%= link_to 'Edit', edit_article_url(article.id) %>
   | <%= link_to "Delete", article_path(article.id), method: :delete,

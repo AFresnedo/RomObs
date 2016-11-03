@@ -28,8 +28,15 @@
   <h2 id="index-header">Index</h2>
   <%# TODO filter output %>
   <div class="container">
+    <% if logged_in? && current_user.blogger? %>
+      <div id="blog-index-new-post">
+        <%= link_to "New Post", new_blog_path%>
+      </div>
+    <% end %>
     <ul id="blog-index">
-      <div id="blog-index-top-page-select"> <%= will_paginate %> </div>
+      <% if @overflow > 10 %>
+        <div id="blog-index-top-paginate"> <%= will_paginate %> </div>
+      <% end %>
       <% @blogs.each do |blog| %>
         <li class="ii" id="topic-<%= blog.topic %>-author-<%= author_name(blog.user_id) %>">
           <%= link_to blog.title, blog_path(blog.id), class: "ii-title" %>
@@ -44,7 +51,7 @@
         </li>
       <% end %>
     </ul>
-    <%= will_paginate %>
+    <div id="blog-index-bottom-paginate"> <%= will_paginate %> </div>
   </div>
 
 </div>

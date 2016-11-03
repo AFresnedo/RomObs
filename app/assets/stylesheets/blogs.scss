@@ -15,7 +15,11 @@ li.dropdown-header {
 
 // Index
 
-#blog-index-top-page-select {
+#blog-index-new-post {
+  margin-bottom: 12px;
+}
+
+#blog-index-top-paginate {
   margin-top: -45px;
 }
 
@@ -31,12 +35,7 @@ a.ii-title  {
 
 #blog-index {
   list-style-type: none;
-  padding: 0px;
-}
-
-ul.ii {
-  margin: 0px;
-  padding: 0px;
+  padding-left: 0px;
 }
 
 #blog-index-author {

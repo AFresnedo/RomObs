@@ -15,6 +15,7 @@ class BlogsController < ApplicationController
     else
       blogs = Blog.all
     end
+    @overflow = blogs.length
     @blogs = blogs.paginate(page: params[:page], per_page: 10)
     @topics = get_topics(blogs)
     @authors = get_authors(blogs)
