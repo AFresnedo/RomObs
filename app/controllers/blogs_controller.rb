@@ -37,6 +37,7 @@ class BlogsController < ApplicationController
 
   def create
     @blog = Blog.new(blog_params)
+    @blog.user_id = current_user.id
     if @blog.save
       flash[:success] = "Posted successfully."
       redirect_to blogs_path
@@ -72,7 +73,7 @@ class BlogsController < ApplicationController
   private
 
     def blog_params
-      params.require(:blog).permit(:title, :descript, :body)
+      params.require(:blog).permit(:topic, :title, :descript, :body)
     end
 
     def blogger_user

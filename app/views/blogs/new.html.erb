@@ -6,6 +6,9 @@
     <%= form_for(@blog) do |f| %>
       <%= render 'shared/error_messages' %>
 
+      <%= f.label :topic %>
+      <%= f.text_field :topic, class: 'form-control' %>
+
       <%= f.label :title %>
       <%= f.text_field :title, class: 'form-control' %>
 

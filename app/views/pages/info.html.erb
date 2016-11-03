@@ -1,1 +1,15 @@
-<h2> Site Information </h2>
+<% provide(:title, "Site Info") %>
+<%# static heading of the page %>
+<div class="container">
+  <%# maybe have the article title instead of contact me %>
+  <h2 id="info-page-header">Site Information</h2>
+</div>
+<%# articles to be shown %>
+<div class="container" id="info-articles">
+  <%= render @articles %>
+</div>
+<% if @mode == 'edit' %>
+<p>
+<%= link_to 'Create text object', new_article_url %>
+</p>
+<% end %>
