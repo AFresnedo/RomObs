@@ -4,7 +4,7 @@
   <h3 id="blog-show-title"> <%= @blog.title %> </h3>
   <p id="blog-show-descript"><%= @blog.descript %></p>
   <p id="blog-show-author"><em>Author: <%= User.find_by_id(@blog.user_id).name %></em></p>
-  <article id="blog-body"> <%= @blog.body %> </article>
+  <article id="blog-body" class="well"> <%== to_html(@blog.body) %> </article>
   <h4 id="blog-show-comment-header"> Comments </h4>
   <%= render @comments %>
   <% if logged_in? %>
