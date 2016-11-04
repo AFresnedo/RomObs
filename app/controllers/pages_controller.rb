@@ -11,6 +11,7 @@ class PagesController < ApplicationController
     @page = 'welcome'
     @articles = Article.where(page: @page)
     @mode = 'edit'
+    render 'welcome'
   end
 
   def about

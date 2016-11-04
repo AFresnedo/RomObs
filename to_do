@@ -81,7 +81,6 @@ security
     -in addition to strong params, ensure userid == current_user when getting
         userid as a param
     -check strong params for all external inputs
-    -https
     -cross-server whatever thingy
     -verify no sql injection vulnerabilities
 
@@ -92,5 +91,6 @@ pictures & uploads
     -for blogs and articles
 
 cleanup routes
+    -need both patch and put?
 
 run a scan for TODOs & address until none remaining

@@ -30,6 +30,9 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
 
+  #static article routes
+  get '/totd/new', to: 'articles#new_totd'
+
   # rails routes to list
   # automatically generated routes for resources
   resources :users

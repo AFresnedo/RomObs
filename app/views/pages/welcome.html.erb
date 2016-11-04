@@ -16,6 +16,9 @@
       <% else %>
         <em>None</em>
       <% end %>
+      <% if @mode=='edit' %>
+        <p id="totd-new"><%= link_to "New Thought", '/totd/new' %></p>
+      <% end %>
   </div>
   <div class="row">
     <div class="col-sm-6">

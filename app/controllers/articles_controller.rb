@@ -7,6 +7,11 @@ class ArticlesController < ApplicationController
     @article = Article.new(page: params[:page])
   end
 
+  def new_totd
+    @article = Article.new(page: 'welcome', purpose: 'totd')
+    render 'totd-new'
+  end
+
   def create
     # create action using form data
     @article = Article.new(article_params)
