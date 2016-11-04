@@ -1,8 +1,7 @@
 drop-down ui for topics and autofill+hide page field
 
-front end design notes:
-
-    -make headers in blog index filter option stand out
+crud for thought of the day
+    -afaik just autofill purpose and page for article creation
 
 add second, but preceeding filter, through a calendar widget that sets the
 timeframe of displayed blogs
@@ -13,8 +12,6 @@ created_at as part of their index if the default scope is set to that)
 add author name to blog and replace database hits in index and blogshelper
 
 delete history of articles so, for example, not 1000 thoughts of the day
-
-style everything
 
 "fill" (bootstrap) blog index page
     -you are 1920x1080, others aren't
@@ -38,15 +35,11 @@ website layout/design notes:
         -use the html psuedo-link thing to preview each template by loading up
         the blog or frontpage with the settings in a little window
 
-article design notes
-    -put articles in wells?
-
 pages design notes (coupled with article)
     -each article will be a "text object" with a movable/resizeable window and a
      toolbar for text editing like a word processor provides
 
 articles
-    -used as site filler, for example on home and about, adds the text needed
     -has some form of history and history viewer (maybe last 5)
         -i mean old versions saved to restore
     -unlike blogs, have the text body have a toolbar to pick
@@ -70,9 +63,6 @@ links (sidebar?)
 rss feed (sidebar or footer?)
 
 comments
-    -belong to blogs & commentator; this also means that destroy should be
-     automatically triggered (callback) on comment when either blog/commentator
-     are destroyed
     -will eventually become a nested resource (exclusive to blogs) or a concern
     (used as a nested resource by multiple resources)
     -reference other user & quote (using a well) text
@@ -88,7 +78,8 @@ forum
 password reset
 
 security
-    -in addition to strong params, ensure userid == current_user
+    -in addition to strong params, ensure userid == current_user when getting
+        userid as a param
     -check strong params for all external inputs
     -https
     -cross-server whatever thingy

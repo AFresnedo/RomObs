@@ -1,0 +1,4 @@
+ensure comments are destroyed when relevant user and blogs are destroyed
+
+ensure pages work appropriate when: logged out, logged in basic, logged in
+admin, logged in blog (most of these done)
