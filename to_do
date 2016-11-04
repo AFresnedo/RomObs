@@ -1,8 +1,5 @@
 drop-down ui for topics and autofill+hide page field
 
-crud for thought of the day
-    -afaik just autofill purpose and page for article creation
-
 add second, but preceeding filter, through a calendar widget that sets the
 timeframe of displayed blogs
 
