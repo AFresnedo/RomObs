@@ -12,8 +12,15 @@
       <%= f.label "Content" %>
       <%= f.text_area :body, class: 'form-control' %>
 
-      <%= f.label "id" %>
-      <%= f.text_area :purpose, class: 'form-control' %>
+      <% if params[:purpose] == nil %>
+        <%= f.label "id" %>
+        <%= f.text_area :purpose, class: 'form-control' %>
+      <% else %>
+        <div class="hide">
+          <%= f.label "id" %>
+          <%= f.text_area :purpose, class: 'form-control' %>
+        </div>
+      <% end %>
 
       <% if params[:page] == nil %>
         <%= f.label "Page names: welcome, info, about, contact" %>

@@ -10,6 +10,7 @@
 </div>
 <% if @mode == 'edit' %>
 <p>
-<%= link_to 'Create text object', new_article_url(page: 'about') %>
+<%= link_to 'Create text object', new_article_url(page: 'about', purpose:
+                                                  gen_id) %>
 </p>
 <% end %>

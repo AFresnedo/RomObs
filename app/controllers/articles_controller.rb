@@ -4,7 +4,7 @@ class ArticlesController < ApplicationController
 
   def new
     # TODO autofill page from about/contact/home
-    @article = Article.new(page: params[:page])
+    @article = Article.new(page: params[:page], purpose: params[:purpose])
   end
 
   def new_totd
