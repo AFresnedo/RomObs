@@ -12,11 +12,18 @@
       <%= f.label "Content" %>
       <%= f.text_area :body, class: 'form-control' %>
 
-      <%= f.label :purpose %>
+      <%= f.label "id" %>
       <%= f.text_area :purpose, class: 'form-control' %>
 
-      <%= f.label "Page names: welcome, info, about, contact" %>
-      <%= f.text_field :page, class: 'form-control' %>
+      <% if params[:page] == nil %>
+        <%= f.label "Page names: welcome, info, about, contact" %>
+        <%= f.text_field :page, class: 'form-control' %>
+      <% else %>
+        <div class="hide">
+          <%= f.label "Page names: welcome, info, about, contact" %>
+          <%= f.text_field :page, class: 'form-control' %>
+        </div>
+      <% end %>
 
       <%= f.submit "Create article", class: "btn btn-primary" %>
     <% end %>
