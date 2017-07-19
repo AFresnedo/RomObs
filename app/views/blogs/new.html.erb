@@ -3,6 +3,12 @@
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
+    <button onclick="test()" class="btn btn-default dropdown-toggle">
+      Topics <span class="caret"></span></button>
+    <div id="topics" class="dropdown-content">
+      <p>World of Ideas</p>
+      <p>Politics</p>
+    </div>
     <%= form_for(@blog) do |f| %>
       <%= render 'shared/error_messages' %>
 
